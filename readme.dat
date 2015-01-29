@@ -1,0 +1,14 @@
+./Coe/*		:   programs from Dan Coe
+./Coe_my/*	:   programs from Dan Coe. But they have been organized by myself
+./example/*	:	some example of python program. Just for check
+./python2-biggles-1.6.6: a package for sciece plots. not used 
+./usage/**	:	can be used in other program with import 
+
+**				:   used for daily task.
+plot3d			: 3d image plot
+plot16  		: 16 band spectra plot
+search_one.py 	: search the colosed one in the catalog. You can define the column you want to match
+search.py 		: search the catalog. similiar to search_one.py but return all objects.
+select_reg.py 	: selected the objects contained in the region file. So it will be more convenient to select sources. if the region file does not exit, it will create a region file for all of the objects.
+cutfits		: cut the fits file with your defined region.
+gauss_smooth  : smooth and subtraction

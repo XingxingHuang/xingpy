@@ -1,0 +1,2 @@
+* * * * * touch /Users/dcoe/crontouch.txt
+55 23 * * * /data01/cipphot/pipeline/schedule.py

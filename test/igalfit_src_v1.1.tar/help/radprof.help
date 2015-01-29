@@ -1,0 +1,32 @@
+
+
+                             RadProf.pro
+			    July 15, 2011
+
+   RadProf.pro is a subroutine of iGalFit and is designed to operate
+like the radial profile procedure as part of ImExamine in IRAF
+(http://iraf.noao.edu).  The position of the cursor sets an intial guess, 
+which is then recentered using cntrd.pro from AstroLib with a default 
+FWHM of 3.0 pixels.  If the recentering fails, RadProf will display an 
+error message and *NOT* display a radial profile fit.  When the recentering 
+is successful, RadProf will display the one-dimensional surface brightness 
+profile out 10.0 pixels (by default).  These data are then fit with two 
+functions: 
+
+  (1) Gaussian:
+
+	I(r) = I_0 * exp(-0.5*(r/r_0)^2) + S
+
+  (2) Moffat:
+ 
+	I(r) = I_0 * (1+(r/r_0)^2)^(-beta) + S
+
+where r_0 and beta are labeled as ``width'' and ``shape,'' respectively. 
+The refined centroids are given as (x,y).
+
+Preferences
+   RadProf.pro has two parameters which are set in the Preferences 
+submenu in iGalFit:
+
+   (1) Maxrad: The distance out to which the radial profile is measured.
+   (2) FWHM:   The recentering parameter in cntrd.pro.

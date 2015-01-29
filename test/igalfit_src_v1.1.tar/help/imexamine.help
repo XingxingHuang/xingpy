@@ -1,0 +1,25 @@
+
+
+                           ImExamine Procedures
+                              July 15, 2011
+
+
+   iGalFit has several routines which operate much like the IRAF routine, 
+ImExamine (http://iraf.noao.edu).  These routines are run by clicking in 
+the main window, and pressing one of the many keys:
+
+m   ImStat.pro    Display a subregion and several statistical measurements.
+r   RadProf.pro   Measure and model the radial surface brightness profile.
+c   ColPlot.pro   Plot the image brightness for a given column.
+l   RowPlot.pro   Plot the image brightness for a given row.
+e   ContPlot.pro  Display and model a contour plot at a given position.
+h   HistPlot.pro  Display a pixel histogram around a given position.
+
+Additional parameters which are not necessarily ImExamine related, but are 
+accessed by with the keyboard in a similar fashion:
+
++   Zoom in at the center of the view.
+-   Zoom out at the center of the view.
+
+Please check future versions, as many new features are likely to be added 
+as demand or suggestions dictate.

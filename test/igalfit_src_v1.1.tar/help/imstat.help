@@ -1,0 +1,53 @@
+
+
+                             ImStat.pro
+			    July 15, 2011
+
+
+   ImStat is a subroutine of iGalFit and is designed to operate like
+the imstat procedure as part of ImExamine in IRAF
+(http://iraf.noao.edu).  Unlike the IRAF utility, ImStat shows the
+small section (stamp) of main image from which the statistics are
+computed.  This stamp is linearly ``autoscaled'' (see XXXX help page) between 
+-3 and 10 sigma of the mean, and so the pixel brightnesses depending on 
+the objects in the stamp.  Many common statistical measures are presnted, and 
+are largely organized by image properties and image moments.
+
+Image Properties:
+  (1) Total: Total flux within the region
+  (2) Min:   Minimum pixel brightness within the region
+  (3) Max:   Maximum pixel brightness within the region
+  (4) xr:    X-range of pixels from the main image
+  (5) yr:    Y-range of pixesl from the main image
+  (6) Npix:  Number of pixels used to compute the statistics
+   
+Image Moments:
+  (1) Ave:    Simple average (first moment)
+  (2) Med:    Simple median
+  (3) ResAve: Outlier-resistant average, computed by resistant_mean.pro from 
+              the AstroLib.  The default sigma clip is 3.0.
+  (4) Std:    Simple standard deviation (reduced second moment)
+  (5) ResStd: Outlier-resistant standard deviation, computed by 
+      	      robust_sigma.pro from the AstroLib.
+  (6) Skew:   Simple skew (third moment)
+      	    	   
+		      <image^3>
+	    skew = ---------------
+                    <image^2>^1.5
+
+  (7) Kurt:   Simple kurtosis (fourth moment)
+
+      	    	       <image^4>
+      	    kurt = ----------------- - 3
+ 	    	      <image^2>^2
+
+
+Preferences.
+   ImStat has several parameters which are controled by the Preferences 
+menu in iGalFit.
+  (1) Number of sigma in the computation of ResAve
+  (2) Size of stamp
+  (3) Do we include pixels with 0 flux? Y/N?
+
+
+

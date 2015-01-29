@@ -1,0 +1,6 @@
+# TITLE: Description of the simulation process using condor
+# CREATED: 20070531 davidabreu@users.sourceforge.net
+# This file describes the simulations process and the files than we need to
+# run and analyze a simulation
+#
+TODO: write this file

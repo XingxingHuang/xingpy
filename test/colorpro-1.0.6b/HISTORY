@@ -1,0 +1,40 @@
+1.0.6b/
+
+  coeio.loadpixelscale now handles both s/pix and "/pix
+  catlabels.txt included
+
+1.0.6/
+
+  GAIN allowed to be set individually for each image
+  region labels w/o decimal point
+
+1.0.5/
+
+  Important bug fixes
+
+1.0.4/
+
+  Minor bug fixes, features added.
+  Now runs straight SExtractor when SExSeg is not required
+
+1.0.3/
+
+  Minor bug fixes, features added.
+
+1.0.2/
+
+  NOW WITH BPZ v1.99.1 INCLUDED!
+
+  UPDATED FOR NumPy v1.0b3
+    (BUT SHOULD ALSO WORK WITH PREVIOUS VERSIONS)
+
+  NOW USES PyFITS (INSTEAD OF fitsio)
+
+  BUG FIXES, FEATURES ADDED
+
+
+1.0.1/
+
+  UPDATED FOR NumPy
+
+  BUG FIXES, FEATURES ADDED

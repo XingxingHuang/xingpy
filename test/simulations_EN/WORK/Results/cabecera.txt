@@ -1,0 +1,39 @@
+#   1 NUMBER          Running object number	
+#   2 X_IMAGE         Object position along x                         [pixel]	
+#   3 Y_IMAGE         Object position along y                         [pixel]	
+#   4 ALPHA_SKY       Right ascension of barycenter (native)          [deg]	
+#   5 DELTA_SKY       Declination of barycenter (native)              [deg]	
+#   6 FLUX_APER       Flux vector within fixed circular aperture(s)   [count]
+#   7 FLUX_APER2
+#   8 FLUX_APER3	
+#   9 FLUXERR_APER    RMS error vector for aperture flux(es)          [count]
+#  10 FLUXERR_APER2
+#  11 FLUXERR_APER3
+#  12 MAG_APER        Fixed aperture magnitude vector                 [mag]
+#  13 MAG_APER2
+#  14 MAG_APER3
+#  15 MAGERR_APER     RMS error vector for fixed aperture mag.        [mag]	
+#  16 MAGERR_APER2
+#  17 MAGERR_APER3
+#  18 FLUX_ISOCOR     Corrected isophotal flux                        [count]	
+#  19 FLUXERR_ISOCOR  RMS error for corrected isophotal flux          [count]	
+#  20 MAG_ISOCOR      Corrected isophotal magnitude                   [mag]	
+#  21 MAGERR_ISOCOR   RMS error for corrected isophotal magnitude     [mag]	
+#  22 FLUX_AUTO       Flux within a Kron-like elliptical aperture     [count]	
+#  23 FLUXERR_AUTO    RMS error for AUTO flux                         [count]	
+#  24 MAG_AUTO        Kron-like elliptical aperture magnitude         [mag]	
+#  25 MAGERR_AUTO     RMS error for AUTO magnitude                    [mag]	
+#  26 FLUX_BEST       Best of FLUX_AUTO and FLUX_ISOCOR               [count]	
+#  27 FLUXERR_BEST    RMS error for BEST flux                         [count]	
+#  28 MAG_BEST        Best of MAG_AUTO and MAG_ISOCOR                 [mag]	
+#  29 MAGERR_BEST     RMS error for MAG_BEST                          [mag]	
+#  30 KRON_RADIUS     Kron apertures in units of A or B	
+#  31 ISOAREA_IMAGE   Isophotal area above Analysis threshold         [pixel**2]	
+#  32 A_WORLD         Profile RMS along major axis (world units)      [deg]	
+#  33 B_WORLD         Profile RMS along minor axis (world units)      [deg]	
+#  34 THETA_SKY       Position angle (east of north) (native)         [deg]	
+#  35 ELLIPTICITY     1 - B_IMAGE/A_IMAGE	
+#  36 CLASS_STAR      S/G classifier output	
+#  37 FLAGS           Extraction flags	
+#  38 GALAC_EXT       Applied Galactic extinction, from Schlegel et al(1998)  [mag]
+#  39 FULL_ID         Filter + field_name + object number

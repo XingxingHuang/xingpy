@@ -1,0 +1,25 @@
+ColorPro Manual
+(also available at http://acs.pha.jhu.edu/~coe/ColorPro/manual/)
+
+ColorPro is a highly automated program for obtaining robust photometry across images of varied PSF.
+
+You provide: 
+# Images with correct WCS headers (incl. RMS & weight images, as desired)
+# Image PSFs
+# Zeropoints (and if desired, Extinction and Saturation Level)
+# Object detection: SExtractor configuration file -OR- pre-defined segmentation map
+# a configuration file
+
+ColorPro produces:
+# A single catalog with robust photometry in all of your filters
+
+The WCS headers are important to get right, as these will be used to align the images to one another. If you're unsure about your WCS headers, you will want to check the remapped images "*2A.fits" to make sure they line up to images in the "A" frame (or photomtery frame).
+
+You must also provide image PSFs, or Point Spread Functions. (The file names must correspond to the filters, as described below.) These PSFs will be used to: 1) tell which images are considered "blurry" (of poor PSF) relative to the "photometry frame" image 2) degrade the latter to the PSF of the former ("blurry image"). If obtaining image PSFs seems like an investment of too much work, you could try approximating with a Gaussian PSF with the correct width. I hope to automate (or at least semi-automate) the task of obtaining the PSF for each image. Selecting proper stars proves tricky to automate...
+
+We encourage simple (one letter) names for each filter, "b" for example. In the final catalog, the "b" column will contain the magnitudes for filter "b". Meanwhile, the images will be named b.fits, b_weight.fits, b_rms.fits, bpsf.fits. If your images don't have such simple names, ColorPro will create links to the filenames you provide in colorpro.in (see below).
+
+We now walk you through:
+MANUAL-INPUT:  Input configuration file: colorpro.in
+MANUAL-RUN:    Running ColorPro
+MANUAL-OUTPUT: Output Catalog: photometry.cat

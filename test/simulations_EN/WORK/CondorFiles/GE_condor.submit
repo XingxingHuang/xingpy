@@ -1,0 +1,17 @@
+# TITLE: Condor parameters file
+# CREATED: 20070528 davidabreu@users.sourceforge.net
+# File with parameters to launch a simulation with condor using condor_submit
+#
+Universe		= vanilla
+Executable		= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/SCRIPTS/GE_launch_complete_simulation.py 
+Args			= -p /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/ParamFiles/groth_wi03_stepsize_100.par 1000
+Requirements		= Arch == "INTEL" && OpSys == "LINUX"
+Rank			= KFlops
+Log			= my_job$(Process).log
+Output			= my_job$(Process).stdout
+Error			= my_job$(Process).stderr
+Getenv   		= True
+Should_transfer_files	= YES
+When_to_transfer_output = ON_EXIT
+Transfer_input_files	= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Entornos/groth_wi03_entorno.tar.gz
+Queue 160

@@ -1,0 +1,16 @@
+
+
+                       iGalFit Additional Tools
+		             July 15, 2011
+
+
+   iGalFit has many additional tools to facilitate the main objective of 
+building, running, and analyzing GalFit input/output files.  
+
+reginfo.pro        Display, modify, and delete the existing regions.
+stretchimage.pro   Control the minimum, maximum, bias, and contrast in the 
+		   image scaling.
+pixhist.pro        Display the pixel histogram of the whole image, and 
+		   modify the min/max settings of the display.
+pixtab.pro 	   Display a pixel table as the mouse moves around the image.
+editfeed.pro       Edit the GalFit FeedMe file by hand.

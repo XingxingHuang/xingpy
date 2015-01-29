@@ -1,0 +1,21 @@
+# TITLE: Parameter file for simulations
+# CREATED: 20070518 davidabreu@users.sourceforge.net
+# File with parameters using GE_launch_simulation_set.py
+#
+# Lines starting with '#' are ignored
+#
+# Format: parameterName	value	# comments
+#
+# Accepted parameters: TOTITERS, STEPSIZE, REFF, ELIPT, MAG, SERSIC, INPUTIMAGE
+# PSFIMAGE, SEXFILE, GALSEXFILE, RMSIMAGE, RMSPSFIMAGE, KERNELIMAGE
+# ENTORNO
+#
+TOTITERS	1000		# total number of simulation sets
+STEPSIZE	100		# simulations each step
+REFF            0.25	15.	# Effective radii of sources (Rmin Rmax)
+ELIPT		0.	0.8	# Ellipticity of sources (Emin Emax)
+MAG		15.5	20.5	# Apparent magnitudes (Mmin Mmax)
+SERSIC		1.	1.	# Sersic index (Nmin Nmax)
+INPUTIMAGE	/net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Initial/groth.fits	# Input image
+PSFIMAGE	/net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/psf.fits	# PSF image -> galfit has problems with long names, be careful.
+SEXFILE		SEXFILE		/net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Initial/palomar.sex # SExtractor file

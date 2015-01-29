@@ -1,0 +1,59 @@
+# HST
+HST	F218W	HST_WFC3_UVIS_F218W.res
+HST	F225W	HST_WFC3_UVIS_F225W.res
+HST	F275W	HST_WFC3_UVIS_F275W.res
+HST	F300X	HST_WFC3_UVIS_F300X.res
+HST	F336W	HST_WFC3_UVIS_F336W.res
+HST	F350LP	HST_WFC3_UVIS_F350LP.res
+HST	F390W	HST_WFC3_UVIS_F390W.res
+HST	F435W	HST_ACS_WFC_F435W.res
+HST	F475W	HST_ACS_WFC_F475W.res
+HST	F555W	HST_ACS_WFC_F555W.res
+HST	F606W	HST_ACS_WFC_F606W.res
+HST	F625W	HST_ACS_WFC_F625W.res
+HST	F775W	HST_ACS_WFC_F775W.res
+HST	F814W	HST_ACS_WFC_F814W.res
+HST	F850LP	HST_ACS_WFC_F850LP.res
+HST	F105W	HST_WFC3_IR_F105W.res
+HST	F110W	HST_WFC3_IR_F110W.res
+HST	F125W	HST_WFC3_IR_F125W.res
+HST	F126N	HST_WFC3_IR_F126N.res
+HST	F140W	HST_WFC3_IR_F140W.res
+HST	F160W	HST_WFC3_IR_F160W.res
+# SPITZER/IRAC
+IRAC    ch1	irac_ch1.res
+IRAC    ch2	irac_ch2.res
+IRAC    ch3	irac_ch3.res
+IRAC    ch4	irac_ch4.res
+#CFHT
+CFHT	u	./CFHT/uMega.fil
+CFHT	g	./CFHT/gMega.fil
+CFHT	r	./CFHT/rMega.fil
+CFHT	i	./CFHT/iMega.fil
+CFHT	z	./CFHT/zMega.fil
+# Subaru
+subaru	B	./Subaru/Subaru_B.res
+subaru	G	./Subaru/Subaru_G.res
+subaru	V	./Subaru/Subaru_V.res
+subaru	R	./Subaru/Subaru_R.res
+subaru	Rc	./Subaru/Subaru_Rc.res
+subaru	I	./Subaru/Subaru_I.res
+subaru	Ic	./Subaru/Subaru_Ic.res
+subaru	Z	./Subaru/Subaru_Z.res
+subaru 	IA427	./Subaru/IB427.SuprimeCam.pb
+subaru 	IA464	./Subaru/IB464.SuprimeCam.pb
+subaru 	IA484	./Subaru/IB484.SuprimeCam.pb
+subaru 	IA505	./Subaru/IB505.SuprimeCam.pb
+subaru 	IA527	./Subaru/IB527.SuprimeCam.pb
+subaru 	IA574	./Subaru/IB574.SuprimeCam.pb
+subaru 	IA624	./Subaru/IB624.SuprimeCam.pb	
+subaru 	IA679	./Subaru/IB679.SuprimeCam.pb
+subaru 	IA709	./Subaru/IB709.SuprimeCam.pb
+subaru 	IA738	./Subaru/IB738.SuprimeCam.pb
+subaru 	IA767	./Subaru/IB767.SuprimeCam.pb
+subaru 	IA827	./Subaru/IB827.SuprimeCam.pb
+# UVISTA
+UVISTA	Y	./VISTA/VISTA_Filters_at80K_forETC_Y.dat
+UVISTA	J	./VISTA/VISTA_Filters_at80K_forETC_J.dat
+UVISTA	H	./VISTA/VISTA_Filters_at80K_forETC_H.dat
+UVISTA	Ks	./VISTA/VISTA_Filters_at80K_forETC_Ks.dat

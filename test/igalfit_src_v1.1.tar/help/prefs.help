@@ -1,0 +1,9 @@
+
+
+                          iGalFit Preferences
+                             July 15, 2011
+
+
+   iGalFit has several parameters set, by default, to reasonable values 
+which work well on HST/WFC3 imaging.  However, users may find it useful to 
+adjust these settings to better suit their dataset.  

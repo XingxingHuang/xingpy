@@ -1,0 +1,63 @@
+B
+a383_uvis_f225w.fits
+a383_uvis_f275w.fits
+a383_uvis_f336w.fits
+a383_uvis_f390w.fits
+
+G
+a383_acs_f435w.fits
+a383_acs_f475w.fits
+a383_acs_f606w.fits
+a383_acs_f625w.fits
+a383_acs_f775w.fits
+a383_acs_f814w.fits
+a383_acs_f850lp.fits
+
+R
+a383_ir_f105w.fits
+a383_ir_f110w.fits
+a383_ir_f125w.fits
+a383_ir_f140w.fits
+a383_ir_f160w.fits
+
+indir  /Users/dcoe/CLASH/a383/
+outname  a383
+
+# region selected to define the color
+samplesize 1000
+sampledx 0
+sampledy 0
+
+# create the figure by stamps. Because the plot will crash when the image is too large
+stampsize  1000
+showstamps  0
+
+#################################
+# The user then inputs how what percentage of the data should be allowed to saturate. satpercent = 0.001 (0.001% = 1/100,000 of the data) usually works well. satpercent = 0 usually works well too.
+#################################
+# “The noise” is currently determined as 1-sigma above the sigma-clipped mean. The user inputs how luminous “the noise” should be in the output image. The default value of noiselum 0.15 works well, but you may wish to tweak this as high as 0.30 or so
+# The color values are from 0 to 1. This value is 'How noise looks like' in the image. if it is set higher, then the noise will be obvious.
+#################################
+satpercent  0.001
+noiselum    0.15
+
+colorsatfac  1
+deletetests  0
+#sampledx  0
+#sampledy  0
+
+#################################
+# Trilogy uses log scaling constrained at three points (hence the name “tri-log”-y).
+# These three points are currently zero, “the noise”, and saturated values.
+# The functional form used to accomplish this is y = log10( k * (x - xo) + 1 ) / r.
+#
+# This means the three points (currently zero, “the noise”, and saturated values) 
+# will be set as 0, x1, 1 in the final image.
+#
+# Current settings:
+# x0: 0 (0 in the input yields black in the output)
+# x1: mean + std (1-sigma above the noise)
+# x2: set so only some small fraction of pixels saturate (with output = 1)
+#################################
+
+

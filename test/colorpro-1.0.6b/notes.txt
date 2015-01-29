@@ -1,0 +1,1277 @@
+ALSO SEE HOW I RAN MY ColorPro PROCEDURE ON THE VLT AND Tonetti's IMAGES:
+~/UDF/VLT/notescut.txt
+~/Tonetti/colorpro/notes.txt
+
+~/colorpro/test/#/notes.txt
+
+TOOK FROM ~/misc/ColorPro.txt
+
+---------------------------------
+
+EXAMPLE FINALLY PACKED IN:
+~/colorpro/test/8b/
+
+~/colorpro/
+tar colorpro-1.0.0.tar colorpro-1.0.0
+gzip colorpro-1.0.0.tar
+
+colorpro-1.0.0.tar.gz (1.5M)
+
+mv ~/colorpro/colorpro-1.0.0/example/*.fits ~/colorpro/testinstall/
+
+tar colorproonly-1.0.0.tar colorpro-1.0.0
+gzip colorproonly-1.0.0.tar (104K)
+
+mv ~/colorpro/testinstall/*.fits ~/colorpro/colorpro-1.0.0/example/
+
+cp colorpro-1.0.0.tar.gz ~/public_html/ColorPro/run/
+cp colorproonly-1.0.0.tar.gz ~/public_html/ColorPro/run/
+
+COPY public_html FILES TO IDENTICAL DIRECTORY AT WORK USING (FOR EXAMPLE):
+  cpw index.html
+  cpw "*.gz"
+
+---------------------------------
+FILES WE USE:
+colorpro.py
+  wregstamp.py
+    convertcoords.py
+    shiftWCS.py
+  zeropadfits.py
+
+sexseg.py
+  sexsegconfig.py
+  sexsegconfiganalthresh.py
+  fitsio.py    
+  sparse.py
+  sparsenoobj.py
+  compresssplist.py
+  fences.py          
+  reclaim.py   
+  ksbtools.py  
+  MLab_coe.py
+  sppatchnew.py
+  spcensus.py
+
+sexsegcat.py
+  census.py
+  bpz_tools.py (sex2bpzmags)
+ksbtools.py...
+
+Python with PyRAF
+SExtractor
+WCSTools: 
+  xy2sky, sky2xy (colorpro.wregstamp.convertcoords)
+  imsize (IF NECESSARY, PIXEL SCALE)
+
+OTHER PEOPLE'S PROGRAMS:
+Txitxo's bpz_tools
+MLab
+fitsio
+
+---
+
+If all of your images have the same PSF, then ColorPro is not for you.
+
+If you would like robust colors across images of different PSF.
+fully automated
+degrading every image to the worst seeing
+
+ColorPro accurately measures photometric colors across images of different seeing.
+
+---
+
+coetools.py INSTEAD OF ksbtools.py
+
+ksbtools.py USED BY:
+census.py
+  Numeric
+zeropadfits.py
+  capfile
+convertcoords.py
+  capfile
+shiftWCS.py
+  capfile, str2num, striskey, params_cl
+wregstamp.py
+  savedata, loaddata, capfile, decapfile, delfile, fpart, odd, pause
+sexsegcat.py
+  loadcat, sex2bpzmags, smoothrogers1er, # interpn, hypot, census, Numeric
+colorpro.py
+  loadfile, strbegin, str2num, capfile, getinput, ...
+
+!!! loadpixelscale !!!
+
+---
+
+TRYING TO FOLLOW THE DISTUTILS FORMAT
+ALTHOUGH I DON'T THINK I'LL ACTUALLY USE IT IN THE END
+(NO NEED TO(?))
+
+colorpro-1.0.0/
+
+~/colorpro/
+
+cp test/6/colorpro.py colorpro-1.0.0/
+cp test/6/sexsegcat.py colorpro-1.0.0/
+
+cp test/6/default.sexseg colorpro-1.0.0/
+cp test/6/psf.sex colorpro-1.0.0/
+cp test/6/psf.param colorpro-1.0.0/
+
+cp ~/p/wregstamp.py colorpro-1.0.0/
+cp ~/p/convertcoords.py colorpro-1.0.0/
+cp ~/p/shiftWCS.py colorpro-1.0.0/
+cp ~/p/zeropadfits.py colorpro-1.0.0/
+cp ~/p/census.py colorpro-1.0.0/
+cp ~/p/sex2bpzmags.py colorpro-1.0.0/
+cp ~/p/MLab_coe.py colorpro-1.0.0/
+
+SExSeg?  YES, PACKAGE IT WITH ColorPro
+cp ~/p/sexseg.py colorpro-1.0.0/
+cp ~/p/sexsegconfig.py colorpro-1.0.0/
+cp ~/p/sexsegconfiganalthresh.py colorpro-1.0.0/
+cp ~/p/fitsio.py colorpro-1.0.0/
+cp ~/p/sparse.py colorpro-1.0.0/
+cp ~/p/sparsenoobj.py colorpro-1.0.0/
+cp ~/p/compresssplist.py colorpro-1.0.0/
+cp ~/p/fences.py colorpro-1.0.0/
+cp ~/p/reclaim.py colorpro-1.0.0/
+cp ~/p/sppatchnew.py colorpro-1.0.0/
+cp ~/p/spcensus.py colorpro-1.0.0/
+
+cp ~/p/sexseg.sex colorpro-1.0.0/
+cp ~/p/back.sex colorpro-1.0.0/
+
+setenv SEXSEG /home/coe/sexseg/ (use your pathname instead!)
+setenv PYTHONPATH ${PYTHONPATH}:$SEXSEG
+alias sexseg "python $SEXSEG/sexseg.py"
+
+----------------------------------
+
+README
+INSTALL
+MANUAL
+TODO
+CREDITS
+ChangeLog
+
+---
+
+TO DO:
+
+! OPTION TO NOT USE SExSeg
+
+  BPZ
+
+  WEBPAGES, COLOR IMAGES
+
+  SELECT STARS, DETERMINE PSFS
+
+  REDUCE THE CHATTER
+
+? AUTOMATICALLY CORRECT WCS HEADERS
+
+CHECK IF ABOUT TO OVERWRITE det.sex, ETC.
+
+FOR SEGMENTATION MAPS, DETECTION IMAGES NOT NECESSARY IF WCS INFO IS INCLUDED
+
+---
+
+NOTE, THAT default_weight.fits MAKES IT THROUGH WHEN YOU DON'T DEFINE ANYTHING
+BUT IT DOESN'T MATTER, AS IT'S DEFINED FROM THE COMMAND LINE IN SExSeg
+
+REALLY OUGHT TO SUBTRACT BACKGROUNDS FROM ALL IMAGES (AS DESIRED)...
+*BEFORE* CREATING DETECTION IMAGE AND ITS DEGRADED VERSIONS
+INSTEAD, I DECIDED TO NEVER SUBTRACT FROM DETECTION IMAGES,
+ AND SUBTRACT FROM DEGRADED IMAGES IF I SUBTRACTED FROM THE REGULAR VERSION
+
+---
+
+Detection
+  detection images? (B+V+i+z, etc.)
+  which images, params, how to combine (sppatchnew)
+alignment
+  WCS headers
+  (fix if necessary!)
+PSF-matching
+  star selection
+SExSeg / SExtractor
+  params
+final catalog (add & subtract magnitudes)
+BPZ
+  filters
+webpages?
+
+---
+
+CATALOG:
+~/Tonetti/colorpro/
+align.py
+photometry.py
+cat.py
+
+-- RUN BPZ --
+bpzchisq2run.py
+bpzfinalize7a.py -- RE-INCLUDE STELLARITY...
+
+NOW *THAT* WOULD BE BITCHIN'!  INCORPORATING BPZ INTO ALL THIS!
+MORE RECOGNITION FOR BPZ.  AND ONE PACKAGE THAT DOES IT ALL.
+LOOK OUT GOOGLE!  WE GOT YOUR GOOGLE PACK RIGHT HERE!
+
+-----
+
+~/UDF/laptop/daopsf/notes.txt
+~/UDF/VLT/daopsf/notes.txt
+~/UDF/VLT/daopsf/remap/automated/notes.txt
+
+* PICK GOOD STARS
+* OBTAIN AVERAGE PSF FOR EACH IMAGE (daopsf)
+x DETERMINE WHICH IMAGES ARE BLURRY
+x CALCULATE DEGRADING KERNELS (ONE PSF TO OTHER)
+x DEGRADE DETECTION IMAGE TO SEEING OF EACH BLURRY IMAGE
+
+#######################################
+# Stars
+
+stars.xy
+(CAN VARY FOR EACH IMAGE)
+
+---
+
+Actually, this will be the same for all images:
+PIXEL_SCALE	0.03
+
+Calculated:
+SEEING_FWHM	0.088
+
+Input:
+MAG_ZEROPOINT	25.673
+
+Optional input:
+SATUR_LEVEL	50000
+
+---------------------------------
+
+AFTER VERSION 1.0.0:
+
+~/colorpro/current/
+NOTE, NOW USING CVS (SEE ~/misc/howto/cvs.txt)
+
+IMPORTANT INSTALLATION NOTE:
+
+setenv SEXSEG $COLORPRO
+alias sexseg "python $SEXSEG/sexseg.py"
+
+MAY ALSO HAVE PROBLEM WITH DEFAULT .sex FILES
+
+cp ~/Tonetti/colorpro/bright.sex .
+cp ~/Tonetti/colorpro/bright.param .
+EDITED BOTH A LITTLE
+
+cp ~/Tonetti/colorpro/bright.param .
+
+cp ~/p/sex2xy.py .
+
+
+AUTOMATIC ALIGNMENT OF IMAGES
+
+x INPUT OF SEGMENTATION MAP NAME
+
+---------------------------------
+
+ANOTHER TEST:
+~/clusters/CL0024/
+
+WANT:
+  AUTOMATIC IMAGE ALIGNMENT CORRECTION
+  AUTOMATIC PSF MEASUREMENT
+
+MY LINUX SYSTEM WAS UPDATED
+TIME TO UPDATE FROM numeric TO numpy!!
+
+current/ -> lastnumeric/
+
+~/colorpro/current/
+python
+import convertcode
+convertcode.convertall()
+
+MANUALLY CHECK:
+coetools.py
+ 'B' -> '1'
+ numeric import *
+MLab_coe.py
+fitsio.py
+smooth.py
+sparsenoobj.py
+sparse.py
+
+UNCHANGED:
+(NEEDED TO CHANGE numeric import *)
+fences.py
+sexseg.py
+sex2xy.py
+spcensus.py
+wregstamp.py
+
+fitsio.py:from numpy.core.umath import *
+
+---------------------------------
+
+DID SOME WORK ON THE MAC LAPTOP
+~/clusters/CL0024/highz/colorpro/
+CHANGED / ADDED(*) THESE FILES ON THE LAPTOP:
+~/colorpro/current/
+ * default.nnw
+ * none.param
+ * sexseg.param
+   sexseg.sex -- DIRECTORIES
+   back.sex -- DIRECTORIES
+   coeio.py -- params_cl():  list = sys.argv[:]
+   sexseg.py -- if segmcutflags == []:
+   colorpro.py -- if (filt in backpresub):  # or (filt in detfilts): 
+     MAY STILL SUBTRACT BACKGROUND IF filt IS THE DETECTION IMAGE
+
+FIRST BACK STUFF UP TO ../beforeMac/
+cp *.py ../beforeMac/
+cp *.sex ../beforeMac/
+cp *.sexseg ../beforeMac/
+cp *.param ../beforeMac/
+
+FROM MAC, rsync FILES:
+rsync -avz -e ssh colorpro/current/ $tx1/colorpro/current/
+
+OOPS, WROTE OVER ~/colorpro/current/CVS/ DIRECTORY
+
+coeio.py:
+def params_cl():
+    list = sys.argv[:]
+
+SO THE Mac CHANGES WEREN'T HUGE AT ALL!
+I DID DISCOVER SOME CHANGES THAT I NEED TO MAKE THOUGH...
+
+---------
+
+FROM ~/clusters/CL0024/highz/colorpro/notes.txt:
+
+2DO:
+
+x DETECTION IMAGE ZEROPOINT BUG!
+
+x INSIST THAT IMAGES ARE ALIGNED: # ALIGNED TO PHOTOMETRY FRAME
+
+x Zsegm.fits -> segm.fits
+  (ONE DETECTION IMAGE CREATED AND NO FURTHER INSTRUCTIONS GIVEN)
+
+x photometry.cat: REMOVE det, INCLUDE LABEL DESCRIPTIONS, RA & Dec
+    -- filts2 = filts[:]
+    -  sexsegcat.py, cat2sky.py
+
+x PSF NICKNAMES: # PSF IMAGES
+
+x PSF REPORT (TEXT FILE OUTPUT WITH PSF WIDTHS): psfreport.txt
+
+x Z MAGNITUDES REPEATED IN photometry.cat (EXTRA TIME FOR BEING DETECTION IMAGE)
+
+x ALTER back.sex, sexseg.sex TO CALL ON FILES IN CORRECT DIRECTORIES
+  sexsegconfig.py
+
+
+NOT CHECKED YET:
+
+x ALLOW DIFFERENT NAME FOR colorpro.in
+
+x ALLOW DIFFERENT NAME FOR segm.fits  (ALREADY DONE?)
+
+x OPTION TO CHECK ALIGNMENT BASED ON OBJECT POSITIONS: -checkalign
+
+
+cat2sky.py ADDED!
+prunecols.py ADDED!
+
+
+CHANGE:
+run/index.html
+INSTALL
+--
+Numeric -> Numpy
+
+setenv SEXSEG $COLORPRO
+alias sexseg "python $SEXSEG/sexseg.py"
+
+1.0.0 -> 1.0.1
+
+manual/input.html -- MANUAL-INPUT
+manual/run.html   -- MANUAL-RUN
+
+UPDATED:
+colorpro.py
+colorpro.in
+
+---------------------------------
+
+AFTER 1.0.1
+ELINOR IS TESTING IT
+
+
+RELIANCE ON BPZ
+--NO LONGER--
+:::::::::::::::::::::::::::::::::
+Traceback (most recent call last):
+ File "/home/andromeda/elinor/colorpro-1.0.1/colorpro.py", line 12, in ?
+   from coetools import *
+ File "/home/andromeda/elinor/colorpro-1.0.1/coetools.py", line 471, in ?
+   if bpzpath[-1] <> '/':
+IndexError: string index out of range 
+
+
+PLACEMENT OF login.cl (NEEDS TO BE IN WORKING DIR OR IN ~/iraf)
+--INFORM USERS!--
+:::::::::::::::::::::::::::::::::
+Created directory /home/andromeda/elinor/iraf/pyraf for cache
+Warning: no login.cl found
+Traceback (most recent call last):
+ File "/home/andromeda/elinor/colorpro-1.0.1/colorpro.py", line 13, in ?
+   from pyraf.iraf import imcopy, imrename, imdelete, imexpr, psfmatch, wcsmap, geotran, wcscopy
+ImportError: cannot import name imcopy 
+
+
+?? IMAGE TRANSFORMATION
+:::::::::::::::::::::::::::::::::
+Transforming image Z to image Z2A
+   Using transform Z in database Z2A.db
+*** glibc detected *** free(): invalid pointer: 0xb600802e *** 
+
+
+NUMPY Float32 -> float32, Int -> int, FloatType -> float, IntType -> int
+coetools.py, coeio.py, fitsio.py, sexseg.py, sparse.py, sparsenoobj.py
+(THIS APPEARS TO BE A NEW CHANGE IN NUMPY
+ BEFORE BOTH FORMS WERE ACCEPTABLE, NOW ONLY THE LOWERCASE IS)
+:::::::::::::::::::::::::::::::::
+ File "/home/andromeda/elinor/colorpro-1.0.1/coetools.py", line 138, in FltArr
+   a = ones([n0,n1], dtype=Float32)
+NameError: global name 'Float32' is not defined 
+
+
+NewAxis NOT RECOGNIZED ON HER MACHINE IN coeio.py
+:::::::::::::::::::::::::::::::::
+Inserting Gaps...
+ File "/home/andromeda/elinor/colorpro-1.0.1/coeio.py", line 344, in savedata
+   data = data[:,NewAxis]
+NameError: global name 'NewAxis' is not defined
+
+fitsio SUCKS!  SWITCH TO pyfits!
+loadfits & savefits IN coeio.py
+fitsio IN sexseg, sparse, sparsenoobj, wregstamp, zeropadfits
+:::::::::::::::::::::::::::::::::
+/scisoft/lib/python2.4/site-packages/pyfits.py
+:::::::::::::::::::::::::::::::::
+Saving Gaps...
+savefits
+R_seggap.fits
+WRITING .fits FILE: R_seggap.fits
+8011 10551
+Traceback (most recent call last):
+ File "/home/andromeda/elinor/colorpro-1.0.1/colorpro.py", line 716, in ?
+   sexseg(photframe, segmname, image, image+'.sexseg', finalcat, options)
+ File "/home/andromeda/elinor/colorpro-1.0.1/sexseg.py", line 742, in sexseg
+   insertgaps()
+ File "/home/andromeda/elinor/colorpro-1.0.1/sexseg.py", line 329, in insertgaps
+   savefits(out, seggapfits)
+ File "/home/andromeda/elinor/colorpro-1.0.1/coeio.py", line 1888, in savefits
+   data = data.byteswap()
+MemoryError
+:::::::::::::::::::::::::::::::::
+coeio.py:import fitsio
+coeio.py:    # THIS PROGRAM HAS FEWER OPTIONS THAN writefits IN fitsio, SO IT GETS THE JOB DONE EASILY!
+coeio.py:        return fitsio.readfits(filename)['data']
+coeio.py:        fitsio.writefits(filename, fitsio.readfits(filename), 16)
+coeio.py:        fitsio.writefits(filename, fitsio.readfits(filename), -32)
+coeio.py:    return fitsio.parsehead(fitsio.gethead(file), param)
+coeio.py:        fits = fitsio.readfits(outsize)
+coeio.py:    fits = fitsio.readfits(infits)
+coeio.py:    #fitsio.writefits(outfits,fits)
+coetools.py:#import fitsio
+fitsio.py:        #print "fitsio: NOW RETURNING DATA AS STORED TYPE --DC"
+fitsio.py:                print "fitsio: CORRECTING NEGATIVE int8 VALUES"
+fitsio.py:      #print "fitsio: WARNING!  Axes reversed in fitsio.py --DC"
+fitsio.py:              print 'ERROR IN fitsio.py'
+sexseg.py:from fitsio import gethead, getimport
+sexsegtools.py:#import fitsio
+sparsenoobj.py:import fitsio
+sparsenoobj.py:        self.fits = fitsio.readfits(self.name+'.fits')
+sparsenoobj.py:        fitsio.writefits(self.name+'.fits', self.fits, self.fits['bitpix'])
+sparse.py:import fitsio
+sparse.py:        self.fits = fitsio.readfits(self.name+'.fits')
+sparse.py:            fitsio.writefits(self.name+'.fits', self.fits, self.fits['bitpix'])
+wregstamp.py:import fitsio
+wregstamp.py:    nxoutwcs, nyoutwcs = fitsio.getsize(outwcs)
+wregstamp.py:    nxinwcs, nyinwcs = fitsio.getsize(inwcs)
+wregstamp.py:    nxinstamp, nyinstamp = fitsio.getsize(instamp)
+wregstamp.py:    nxoutwcs, nyoutwcs = fitsio.getsize(outwcs)
+zeropadfits.py:from fitsio import getsize
+
+
+---------------------------------
+NOW ERRORS I FOUND MYSELF TRYING TO RUN ColorPro ON THE EXAMPLE IMAGE!
+
+ALIGNMENT NOW PRECEDES CREATING OF DETECTION IMAGE
+IF DETECTION IMAGE NEEDS TO BE CREATED,
+ MAKE THE PHOTOMETRY FRAME THE FIRST IMAGE ADDED AS PART OF THE DETECTION IMAGE
+:::::::::::::::::::::::::::::::::
+NOW ALIGNING IMAGES TO THE PHOTOMETRY FRAME, AS NECESSARY
+IRAF WINDOWS SHOULD POP UP
+JUST KEEP HITTING q TO CONTINUE...
+Killing IRAF task `wcsxymatch'
+...
+IRAF task terminated abnormally
+ERROR (827, "Cannot open image (det)")
+
+
+IMPROPERLY READING IN "SEGMENTATION" SECTION
+--ADDED A LINE:
+        lines = lines[2:]
+:::::::::::::::::::::::::::::::::
+...IMAGE ALIGNMENT COMPLETE
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 478, in ?
+    segmdetfilt = words[1]
+IndexError: list index out of range
+
+
+RE-IMPORT string AFTER numpy IN sppatchnew.py
+:::::::::::::::::::::::::::::::::
+PATCHING IN NEW SEGMENTS... (sppatchnew.py)
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 505, in ?
+    sppatchnew(oldsegm, newsegm, sumsegm, newstartid=newstartid)
+  File "/mnt/datos/coe/colorpro/current/sppatchnew.py", line 92, in sppatchnew
+    newstartid = string.atoi(newstartid)
+AttributeError: type object 'stringscalar' has no attribute 'atoi'
+
+
+REVERT photframe BACK TO DETECTION IMAGE AFTER IT'S MADE IN colorpro.py
+:::::::::::::::::::::::::::::::::
+bpsf.fits NOT FOUND
+DEFINE THE PSF FOR IMAGE b, AND THEN GET BACK TO ME
+
+
+RUN SExSeg ON ALL filts2 NOT JUST filts IN colorpro.py
+(filts2 CONTAINS THE PHOTOMETRY FRAME AT THE BEGINNING)
+:::::::::::::::::::::::::::::::::
+CAN'T REMOVE det_sexseg.wcs DOES NOT EXIST.
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 766, in ?
+    cat2sky(photframe, photframe+'_sexseg.cat', '-d -n 8')
+  File "/mnt/datos/coe/colorpro/current/cat2sky.py", line 8, in cat2sky
+    cat = loadcat(incat)
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 1278, in loadvarswithclass
+    outclass = VarsClass(filename, dir, silent, labels, header, headlines)
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 904, in __init__
+    elif machinereadable(filename, dir):
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 745, in machinereadable
+    fin = open(filename, 'r')
+IOError: [Errno 2] No such file or directory: 'det_sexseg.cat'
+
+
+AFTER UPGRADING TO Numpy-1.0b3
+---------------------------------
+
+COMPRESS SPLIT INTO 2 STATEMENTS IN coetools.py
+        i, s = compress(s, (i, s))
+:::::::::::::::::::::::::::::::::
+  File "/mnt/datos/coe/colorpro/current/coetools.py", line 324, in census
+    for ii in range(len(i)):
+TypeError: len() of unsized object
+
+
+compress: census, coeio, coetools, MLab_coe, sexsegcat, sexseg, sexsegtools, sparsenoobj, sparse, spcensus
+
+MLab_coe
+sexseg
+sexsegtools = coetools
+sparse
+sparsenoobj
+spcensus
+
+from coetools import compress2 as compress
+from compress2 import compress2 as compress
+
+MORE PROBLEMS WITH compress
+THIS TIME IT'S assignresults IN sexseg.py
+SO ALL MY _sexseg.cat FILES WERE LEFT WITH ONLY ONE COLUMN!!
+:::::::::::::::::::::::::::::::::
+Loading  det_sexseg.cat ...
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 765, in ?
+    cat2sky(photframe, photframe+'_sexseg.cat', '-d -n 8')
+  File "/mnt/datos/coe/colorpro/current/cat2sky.py", line 10, in cat2sky
+    cat.save('temp.xy')
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 1184, in save
+    savedata(self.updateddata(), name+'+', labels=labels, header=header, format=format, pf=pf, maxy=maxy, machine=machine, descriptions=self.descriptions, units=self.units, notes=self.notes)
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 948, in updateddata
+    exec('data = array([%s])' % selflabelstr)
+  File "<string>", line 1, in ?
+AttributeError: VarsClass instance has no attribute 'x'
+
+
+zeros NOW GIVES float AS DEFAULT TYPE (BEFORE WAS int)
+coeio
+coetools
+MLab_coe
+sexseg
+sexsegtools = coetools
+sparse
+sparsenoobj
+
+put ALSO SEEMS TO FAIL MORE
+MAYBE MORE ARRAYS ARE AUTOMATICALLY SET TO float THESE DAYS...
+:::::::::::::::::::::::::::::::::
+compress2: NEW VERSION OF compress BECAUSE THE Numpy 1.0b VERSION IS SHWAG
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 781, in ?
+    sexsegcat(filts, photframe, mapped2Afilts, blurryfilts, zpdict, extdict)
+  File "/mnt/datos/coe/colorpro/current/sexsegcat.py", line 38, in sexsegcat
+    cens = cens.takeids(detcat.id)  # USUALLY UNECESSARY
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 1039, in takeids
+    put(good, goodindices, 1)
+  File "/mnt/datos/coe/p/lib/python/numpy/core/fromnumeric.py", line 97, in put
+    return a.put(v,ind, mode)
+TypeError: array cannot be safely cast to required type
+
+---------------------------------
+
+colorpro-1.0.1
+PACKAGING NOTES:
+~/colorpro/current/CVS.txt
+
+---------------------------------
+
+ColorPro 1.0.2
+
+~/colorpro/
+
+cp -r current colorpro-1.0.2
+\rm -r other
+\rm -r current
+\rm -r merged
+\rm -r CVS
+\rm -r *~
+\rm -r *.pyc
+\rm -r example/CVS
+
+
+PACKING: SEE ~/colorpro/current/CVS.txt
+
+EXAMPLE FINALLY PACKED IN:
+~/colorpro/test/8b/
+
+~/colorpro/
+tar colorpro-1.0.0.tar colorpro-1.0.0
+gzip colorpro-1.0.0.tar
+
+colorpro-1.0.0.tar.gz (1.5M)
+
+mv ~/colorpro/colorpro-1.0.0/example/*.fits ~/colorpro/testinstall/
+
+tar colorproonly-1.0.0.tar colorpro-1.0.0
+gzip colorproonly-1.0.0.tar (104K)
+
+mv ~/colorpro/testinstall/*.fits ~/colorpro/colorpro-1.0.0/example/
+
+cp colorpro-1.0.0.tar.gz ~/public_html/ColorPro/run/
+cp colorproonly-1.0.0.tar.gz ~/public_html/ColorPro/run/
+
+COPY public_html FILES TO IDENTICAL DIRECTORY AT WORK USING (FOR EXAMPLE):
+  cpw index.html
+  cpw "*.gz"
+
+---------------------------------
+
+AFTER ColorPro 1.0.2:
+
+BUG FIX:
+                if not os.path.exists(name+'2A_rms.fits'):
+                    geotran(name+'_rms', name+'2A_rms', dbname, name, boundary='constant', interp='spline3')
+                    #geotran(name+'_weight', name+'2A_weight', dbname, name, boundary='constant', interp='spline3')
+
+---
+
+NOT PROVIDED:
+EZ.param, EZ.sex
+
+CHANGING colorpro.py:
+det_bviz1.sex -> det_bviz1_final.sex
+ALL ENVIRONMENT VARIABLES EVALUATED
+ALL COMMAND LINE OPTIONS NOW IN _final.sex
+
+ALL SEXTRACTOR CONFIG FILES NOW MOVED FROM
+~/sex/ TO ~/sex/config TO HIDE THEM WHEN I RUN COLORPRO
+
+UPDATED:
+example/det_bviz1.sex
+example/det_jh1.sex
+
+cp /mnt/datos/coe/sex/config/EZ.param $COLORPRO
+cp /mnt/datos/coe/sex/config/gauss_2.0_5x5.conv $COLORPRO
+cp /mnt/datos/coe/sex/config/gauss_3.0_7x7.conv $COLORPRO
+cp /mnt/datos/coe/sex/config/gauss_4.0_7x7.conv $COLORPRO
+
+MANUAL-RUN
+MANUAL-INPUT
+MANUAL-OUTPUT
+
+---
+
+allpsfsequal
+
+colorpro -psffwhm 0.05
+
+OR:
+
+#######################################
+# PSF IMAGES
+
+FWHM  0.05
+
+
+=================================
+
+AFTER ColorPro 1.0.3:
+
+Edit the parameters in R1_final.sex,
+ and press Enter when ready to run SExtractor again.
+
+R1_final.sex CHANGED TO R1.sex
+(THE LATTER IS THE FILE YOU'RE SUPPOSED TO EDIT)
+
+
+TRYING TO CONVERT FITS ARRAY TO NUMERIC TYPE:
+
+sexseg R segm R -C R.sexseg
+sexseg R.fits segm.fits R.fits -c R.sexseg
+[]
+
+R.fits (8011, 10551)
+BUILDING SPARSE PIXEL LIST...
+BUILDING OBJECT PIXEL LISTS...
+SAVING segm.spl...
+INSERTING GAPS BETWEEN OBJECTS...
+Traceback (most recent call last):
+  File "/mnt/datos/coe/colorpro/current/colorpro.py", line 770, in ?
+    sexseg(photframe, segmname, image, image+'.sexseg', finalcat, options)
+  File "/mnt/datos/coe/colorpro/current/sexseg.py", line 750, in sexseg
+    insertgaps()
+  File "/mnt/datos/coe/colorpro/current/sexseg.py", line 264, in insertgaps
+    data = loadfits(detfits)
+  File "/mnt/datos/coe/colorpro/current/coeio.py", line 1874, in loadfits
+    data = array(data)
+MemoryError
+
+
+THE REAL QUESTION IS WHY ISN'T IT RUNNING Numpy?
+ANSWER: IT WASN'T LOADING MY NEW Pyfits 1.1
+TO FIX THIS, I PUT ${HOME}/p/lib/python IN FRONT OF THE scisoft PATHS
+
+
+ON ELINOR'S MACHINE, A RELATED PROBLEM:
+
+SAVING STiSTzsegm.fits...
+savefits: STiSTzsegm.fits
+Traceback (most recent call last):
+ File "/home/andromeda/elinor/colorpro-1.0.3/colorpro.py", line 516, in ?
+   sppatchnew(oldsegm, newsegm, sumsegm, newstartid=newstartid)
+ File "/home/andromeda/elinor/colorpro-1.0.3/sppatchnew.py", line 193, in sppatchnew
+   origsp.save(outfile)
+ File "/home/andromeda/elinor/colorpro-1.0.3/sparse.py", line 150, in save
+   self.savefits()
+ File "/home/andromeda/elinor/colorpro-1.0.3/sparse.py", line 163, in savefits
+   savefits(data, self.name)
+ File "/home/andromeda/elinor/colorpro-1.0.3/coeio.py", line 1873, in savefits
+   data = numarray.array(data)
+ File "/usr/lib/python2.3/site-packages/numarray/numarraycore.py", line 338, in array
+   return sequence.__array__(type)
+TypeError: data type not understood 
+
+MAYBE IT SHOULD READ numarray.array(data.tolist())
+
+---------------------------------
+
+TRIED INSTALLING IT ON MAC:
+
+pyfits 0.9.6 NOT OKAY
+I USE writeto WHICH WASN'T ADDED TO pyfits UNTIL ??
+I'M USING pyfits 1.1b2
+
+compress2.py: ravel(m) REQUIRED
+
+---------------------------------
+
+psffwhms.txt: NOW DOESN'T REPEAT PHOTOMETRY FRAME
+
+---------------------------------
+
+ColorPro 1.0.4 SHOULD FEATURE THE ABILITY TO RUN STRAIGHT SExtractor
+INSTEAD OF SExSeg WHEN WARRANTED
+
+straightsex if:
+* only 1 detection image
+* detection image not mapped2A
+* no external segm map
+
+photcat.py TO REPLACE sexsegcat.py
+# not multifiltcat.py nor colorcat.py
+SExSeg: R_sexseg_sex.cat -> R_sexseg.cat = R.cat (linked to R_sexseg.cat)
+SEx:    R_sex.cat        -> R.cat
+FINAL:  UDF[_phot,_BRZ].cat  AND  UDF_[phot]full.cat
+
+FINAL FINAL CATALOG (PHOT + BPZ): UDF.cat  OR  UDF_BRZbpz.cat
+
+area FROM DETECTION (INSTEAD OF census)
+
+DON'T PRODUCE SEGMENTATION MAP?
+(LEAVE THAT UP TO THE USER TO DECIDE IN R1.sex)
+
+.sex FILES
+LINES TO BE CHANGED DEPENDING ON THE FILTER:
+--
+CATALOG_NAME    R.cat    # name of the output catalog
+SATUR_LEVEL          22000      # level (in ADUs) at which arises saturation ***
+MAG_ZEROPOINT        34.23      # magnitude zero-point *** FROM COMMAND LINE
+SEEING_FWHM          0.781      # stellar FWHM in arcsec
+#WEIGHT_TYPE          NONE, MAP_WEIGHT     # Since there is no background
+#WEIGHT_IMAGE         default_weight.fits  # MAP_WEIGHT
+
+
+IMPLEMENTED ALL THIS AND TESTED IT IN:
+~/clusters/CL0024/highz/take3/
+
+---------------------------------
+
+TODO:
+
+  x ADD DESCRIPTIONS OF COLUMNS TO OUTPUT CATALOGS
+
+  x "FINAL" CATALOG WITH BOTH PHOTOMETRY AND BPZ
+
+  PRIOR AUTOMATICALLY SET TO DETECTION IMAGE IF:
+    ONLY 1 DETECTION IMAGE
+    IT'S ONE OF THE FILTERS
+
+  SET $HOME AUTOMATICALLY?
+
+  MANUAL FOR BPZ, OR AT LEAST MENTION PLOTTING PROGRAMS
+
+  ABILITY TO CARRY OVER VARIABLES FROM DETECTION IMAGE TO FINAL CATALOG
+    SUCH AS flags, stel, ETC.
+
+    (WHAT WOULD I DO ABOUT DESCRIPTIONS, FORMATTING, ETC.?)
+    how about a "dictionary" file containing all variables
+    along with a format code and description for each, all on one line
+    ('mag' & 'dmag' could be replaced by the actual filter columns)
+    this part DONE: catlabels.txt, .py
+
+---------------------------------
+
+ColorPro 1.0.4
+
+TEST THE NEW VERSION:
+~/colorpro/testexample/notes.txt
+
+PACKAGE THE NEW VERSION:
+~/colorpro/current/CVS.txt
+
+photcat.py REPLACES sexsegcat.py
+catlabels.py (DESCRIPTIONS IN HEADER)
+
+UPDATED:
+INSTALL 1.0.2 -> 1.0.4, etc.
+TODO
+MANAUL-OUTPUT
+
+
+PROBLEMS FOUND ON Mac:
+MLab_coe.py
+
+(UPDATED ON CVS & WEBPAGE)
+
+MLab_coe.py NEEDS TO BE UPDATED IN bpz-1.99.1/ ALSO
+
+sexseg.py:
+L362, ADDED ".astype(int)":
+        objdata = take(data, array(obj).astype(int))
+
+catlabels.txt NOT INCLUDED WITH THE DISTRIBUTION!
+
+scp dae20:colorpro/current/CVS.txt .
+scp dae20:bpztx/CVS.txt CVSbpz.txt
+
+
+---------------------------------
+
+RUNNING ColorPro-1.0.4 ON Elinor's MACHINE!!
+USING Chicken of the VNC
+
+ssh -L 5901:andromeda.tau.ac.il:5901 elinor@wise-gate.tau.ac.il
+def@aBc
+
+VNC:
+localhost
+1
+dancoe
+
+
+cd colorpro-1.0.4/
+cp example example3
+cd example3/
+colorpro
+
+Transforming image j to image j2A
+line 317 (now 320) in colorpro.py:
+                geotran(name, name+'2A', dbname, name, boundary='constant', interp='spline3')
+
+geotran(name, name+'2A', dbname, name, boundary='constant', interp='spline3')
+
+geotran j j2A j2A.db j boundary='constant' interp='spline3'
+
+THE PRECEEDING LINE DIDN'T WORK IN PyRAF / IRAF ON ELINOR'S MACHINE!!
+
+BY RUNNING mkiraf, I CREATED A NEW login.cl IN HER ~/colorpro-1.0.4/example3/
+I CHANGED THE imtype FROM "imh" TO "fits"
+THEN EVERYTHING WORKS JUST FINE
+
+NOTE THAT PyRAF LOOKS IN THE CURRENT DIRECTORY AND THEN ~/iraf/ FOR login.cl
+
+
+Hi,
+
+Well I can't see what you do since you're not really on my desktop, but glad to hear. My login.cl isn't set wrong, it was set to the default. You're probably talking about these lines: (all the other lines are just tasks being declared, and that doesn't matter)
+set imtype = fits
+set imextn = "oif:imh fxf:fits,??? plf:pl qpf:qp stf:hhh"
+
+I see you commented the second line. It just so happens this is the default for iraf imext. It will be like this in most login.cl.
+This way iraf recognizes any combination of three letter, fits, imh, etc. as images he can work on. You changed it so it only recognizes fits ext.
+So a good solution is to make your program set up a login.cl the way it likes it every time it starts working... as you know every person in the world would have his own different set of login.cl .
+Still it's weird because I work with geotran all the time and it works just fine...
+I'll try it out Sunday and let you know how it went.
+
+Cheers,
+Elinor
+
+---------------------------------
+
+SEE OTHER STUFF IN E-MAILS FROM ELINOR, INCLUDING THIS ON 11/28/06:
+
+Other than that, I managed to get over the pop-up windows problem, by adding this params to all the interactive iraf programs in your scripts:
+... interactive=0, gcommands="q.txt")
+where q.txt is a file I create with the letter 'q' in it:
+fileHandle = open ( 'q.txt', 'w' )
+fileHandle.write ( 'q' )
+fileHandle.close()
+No more wondows.
+
+Cheers,
+Elinor
+
+
+AND MAYBE THIS FROM 11/23/06:
+
+Hi,
+
+Well I can't see what you do since you're not really on my desktop, but glad to hear. My login.cl isn't set wrong, it was set to the default. You're probably talking about these lines: (all the other lines are just tasks being declared, and that doesn't matter)
+set imtype = fits
+set imextn = "oif:imh fxf:fits,??? plf:pl qpf:qp stf:hhh"
+
+I see you commented the second line. It just so happens this is the default for iraf imext. It will be like this in most login.cl.
+This way iraf recognizes any combination of three letter, fits, imh, etc. as images he can work on. You changed it so it only recognizes fits ext.
+So a good solution is to make your program set up a login.cl the way it likes it every time it starts working... as you know every person in the world would have his own different set of login.cl .
+Still it's weird because I work with geotran all the time and it works just fine...
+I'll try it out Sunday and let you know how it went.
+
+Cheers,
+Elinor
+
+
+---------------------------------
+
+Matt Ferry
+12/19/06
+
+Hi Dan,
+
+Thanks for the speedy reply and your help.  I appreciate it.  I took your advice and downloaded the version of sexseg in ColorPro.  Unfortunately I still get an error message:
+
+Traceback (most recent call last):
+  File "/home/mferry/colorpro-1.0.4/sexseg.py", line 98, in ?
+    from compresssplist import compresssplist
+  File "/home/mferry/colorpro-1.0.4/compresssplist.py", line 16, in ?
+    from sparse import *
+  File "/home/mferry/colorpro-1.0.4/sparse.py", line 3, in ?
+    from coetools import loaddata, loadfile, capfile, decapfile, pause, savefits, census, savedata, savedata1d, loadfits, savefits
+ImportError: cannot import name loaddata
+
+I'm not sure what the root of this problem is... Any thoughts?
+
+Thanks again,
+
+Matt
+
+::
+THESE PROCEDURES SHOULD BE LOADED IN FROM coeio, RATHER THAN coetools
+IT SHOULD WORK EITHER WAY, BUT IT DOESN'T!
+
+SEND HIM A PATCH WITH THE LATEST FILES:
+-rw-r--r--   1 coe    39K Nov 12 23:18 colorpro.py
+-rw-r--r--   1 coe     9K Nov 13 02:31 smooth.py
+-rw-r--r--   1 coe     8K Nov 13 02:32 photcat.py
+-rw-r--r--   1 coe    14K Nov 19 21:33 sparse.py
+-rw-r--r--   1 coe    72K Dec  7 00:39 coeio.py
+-rw-r--r--   1 coe    30K Dec 16 12:35 MLab_coe.py
+
+tar patch.tar colorpro.py smooth.py photcat.py sparse.py coeio.py MLab_coe.py
+
+---------------------------------
+
+1/31/08
+Bug fix in photcat.py
+
+# v1.0.5: Bug fix: isocor & ext NOW APPLIED TO ALL FILTERS, ext GIVEN CORRECT SIGN
+#   (NOTE: I verified that the UDF was analyzed correctly 
+#    with cat3.py & cor7.py, predecessors to sexsegcat.py/photcat.py)
+
+SEE NOTES IN ~/colorpro/current/test2/notes.txt
+
+---------------------------------
+
+On Apr 22, 2008, at 12:12 PM, Sahar Allam wrote:
+
+Hi Dan,
+Sorry to pother you again,
+I have installed  colorpro  and I'm trying to run it, however I do get the following error:
+
+colorpro
+
+Blurry Filters: ['j', 'h']
+CAN'T REMOVE det.wcs DOES NOT EXIST.
+Loading  det.cat ...
+
+Formatting...
+Traceback (most recent call last):
+ File "/Users/sallam/irafhome/colorpro-1.0.4/colorpro.py", line 928, in <module>
+   cat2sky(photframe, photframe+'.cat', '-d -n 8')
+ File "/Users/sallam/irafhome/colorpro-1.0.4/cat2sky.py", line 10, in cat2sky
+   cat.save('temp.xy')
+ File "/Users/sallam/irafhome/colorpro-1.0.4/coeio.py", line 1214, in save
+   savedata(self.updateddata(), name+'+', labels=labels, header=header, format=format, pf=pf, maxy=maxy, machine=machine, descriptions=self.descriptions, units=self.units, notes=self.notes)
+ File "/Users/sallam/irafhome/colorpro-1.0.4/coeio.py", line 408, in savedata
+   collen = max((collen, len(labels[ix])))  # MAKE COLUMN BIG ENOUGH TO ACCOMODATE LABEL
+IndexError: list index out of range
+
+
+Many Thanks
+Sahar
+
+---------------------------------
+
+On Apr 25, 2008, at 4:02 PM, Sahar Allam wrote:
+
+I found an error with the new version of colorPro
+Traceback (most recent call last):
+ File "/Users/sallam/irafhome/colorpro-1.0.5/colorpro.py", line 973, in <module>
+   photcat(filts, photframe, mapped2Afilts, blurryfilts, zpdict, extdict, colorproout)
+ File "/Users/sallam/irafhome/colorpro-1.0.5/photcat.py", line 102, in photcat
+   interval[0] = 1
+IndexError: index out of bounds
+
+:::
+
+I THINK THERE WAS AN ERROR EARLIER ON THAT MADE AN EMPTY det_sexseg.cat
+
+TO RE-RUN ColorPro IN A FRESH example/ DIRECTORY:
+examplesetup.py
+example.txt
+
+---------------------------------
+
+1.0.5 POSTED
+
+---------------------------------
+
+bpz-1.99.2/
+incl. FIXES MADE IN bpz-1.99.1b
+
+bpz.py
+ - P(z) sym bug
+ - MIN_MAGERR
+ - pylab
+ - x, y cols
+
+bpz_tools.py 
+ - import MLab_coe (not MLab)
+ - log10(x+eps)
+ - ABflux: overlap...
+
+prior_hdfn_SB.py
+ - nt >= 6
+ - Float -> float
+
+bpzfinalize.py
+ - labels
+ - maxxy
+
+(~/bpz-1.99.1b)% lst *.py
+-rw-r--r--   1 coe     4K Aug 25  2006 spline.py
+-rw-r--r--   1 coe     7K Aug 25  2006 func.py
+-rw-r--r--   1 coe    28K Nov  5  2006 MLab_coe.py
+-rw-r--r--   1 coe    12K Nov 22  2006 cosmology.py
+-rw-r--r--   1 coe    15K Jan  3  2007 coetools.py
+-rw-r--r--   1 coe    35K Sep 14  2007 useful.py
+-rw-r--r--   1 coe   655B Sep 14  2007 compress2.py
+-rw-r--r--   1 coe     1K Mar 20 17:50 prior_hdfn_SB.py
+-rw-r--r--   1 coe    39K Mar 26 15:48 bpz.py
+-rw-r--r--   1 coe     4K Mar 28 01:14 bpzfinalize.py
+-rw-r--r--   1 coe    49K Mar 28 11:30 bpz_tools.py
+
+-rw-r--r--   1 coe     3K Dec 19  2006 ABfluxcut.py
+-rw-r--r--   1 coe     4K Mar 28 00:56 bpzfinalize1.py
+
+
+cpt ~/bpz-1.99.1b/prior_hdfn_SB.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/bpz.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/bpzfinalize.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/cosmology.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/coetools.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/useful.py ~/bpz-1.99.2/
+cpt ~/bpz-1.99.1b/compress2.py ~/bpz-1.99.2/
+
+cpt ~/bpz-1.99.1b/plots/*.py ~/bpz-1.99.2/plots/
+
+UNNECESSARY?
+~/bpz-1.99.2/plots/
+coeio.py
+coetools.py
+MLab_coe.py
+
+prior_hdfn_SB.py
+
+
+(~/bpz-1.99.2)%
+cpt ~/lp/coeio.py .
+
+COMMENTED OUT FROM coetools:
+import smooth
+
+python /Users/coe/bpz-1.99.2/bpz.py UDFsample.cat -COLUMNS UDFsample.columns -INTERP 2 -CHECK yes -PROBS_LITE UDFsample.probs
+
+setenv PYTHONPATH /Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/:/Users/coe/p/site-packages:/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/Numeric:/Users/coe/bpz-1.99.2
+
+bpz UDFsample.cat -COLUMNS UDFsample.columns -INTERP 2 -CHECK yes -PROBS_LITE UDFsample.probs
+
+
+setenv BPZPATH {$HOME}/bpz-1.99.2
+alias bpz "python $BPZPATH/bpz.py"
+setenv PYTHONPATH /Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/:/Users/coe/p/site-packages:/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/Numeric:{$BPZPATH}
+
+setenv BPZPATH {$HOME}/bpz-1.99.1b
+alias bpz "python $BPZPATH/bpz.py"
+setenv PYTHONPATH /Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/:/Users/coe/p/site-packages:/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/Numeric:{$BPZPATH}
+
+
+USE OF OLD SEDs, incl. ssp (bpz-1.99.2)
+vs. NEW (bpz-1.99.1b)
+
+CHANGES REDSHIFTS BY ~0, 0.1, 0.2
+
+
+-rw-r--r--   1 coe    13K Sep 12  2006 cosmology.pyc
+-rw-r--r--   1 coe     5K Apr 28 16:02 spline.pyc
+-rw-r--r--   1 coe    12K Apr 28 16:02 func.pyc
+-rw-r--r--   1 coe    34K Apr 28 16:02 MLab_coe.pyc
+-rw-r--r--   1 coe    39K Apr 28 16:53 useful.pyc
+-rw-r--r--   1 coe   698B Apr 28 16:53 compress2.pyc
+-rw-r--r--   1 coe    41K Apr 28 16:53 bpz_tools.pyc
+-rw-r--r--   1 coe     1K Apr 28 16:53 prior_hdfn_SB.pyc
+-rw-r--r--   1 coe    48K Apr 28 16:57 coeio.pyc
+-rw-r--r--   1 coe    13K Apr 28 16:57 smooth.pyc
+-rw-r--r--   1 coe    15K Apr 28 16:58 coetools.pyc
+
+
+tar bpz-1.99.2.tar.gz -z bpz-1.99.2
+
+# untar bpz-1.99.2.tar.gz
+scp bpz-1.99.2.tar.gz adcam.pha.jhu.edu:public_html/ColorPro/run/
+
+scp ~/public_html/ColorPro/run/index.html adcam.pha.jhu.edu:public_html/ColorPro/run/
+
+rsync -avzn -e ssh ~/public_html/ColorPro/ adcam.pha.jhu.edu:public_html/ColorPro/
+
+---------------------------------
+
+1.0.6/
+
+REGION LABELS W/O DECIMAL POINT:
+sexseg.py:
+    savelabels(x, y, sid, regfile, precision=0)
+
+
+HMMM... MY MIN VALUE OF 0.0001 IN det_sexseg.fits
+SEEMS DANGEROUSLY CLOSE TO SOME OF THE REAL DATA VALUES
+COULD I GET ERRONEOUSLY HIGH FLUXES AS A RESULT?
+PROBABLY NOT BY MUCH USUALLY...
+WAIT, NEVER MIND.  THAT'S JUST THE DETECTION IMAGE!
+
+
+---------
+
+Will High
+
+GOT THE geotran ERROR
+(I SHOULD JUST SET EVERYTHING FROM WITHIN THE PROGRAM!!
+
+iraf.set(imtype = 'fits')
+
+
+ALSO GOT THE DREADED interval ERROR:
+interval[0] = -1
+photcat.py
+
+TURNED OUT TO BE RELATED TO 
+THE BACKGROUND SUBTRACTION ISSUE THAT SAHAR WAS HAVING
+AS NOW NOTED ON THE ColorPro PAGE:
+
+NOTE: Please install SExtractor from source. There appears to be a bug in the Scisoft Mac OS X distribution of SExtractor. Thanks to Sahar Allam and Marc Rafelski for isolating this problem and tracking down the solution! To install from source, just unpack the files and then run: "./configure; sudo make install".
+
+HE DID HAVE ANOTHER VERSION OF SEXTRACTOR INSTALLED ON HIS MACHINE (FROM SOURCE).  HE MADE SURE PYTHON WOULD CALL IT (DELETED sex FROM /scisoft/i386/bin/), THEN EVERYTHING WORKED!!
+
+---------------------------------
+
+1.0.6/
+
+4/20/09
+
+GAIN allowed to be set for each individual image!
+plus whatever other improvements I've made since 1.0.5
+
+REQUIRED CHANGES IN:
+colorpro.py
+sexsegconfig.py
+
+Now SATUR_LEVEL & GAIN are also applied to the _back images
+in case that mattered :P
+
+cpt *.py ~/colorpro-1.0.6/
+cpt *.param ~/colorpro-1.0.6/
+cpt default.* ~/colorpro-1.0.6/
+cpt *.conv ~/colorpro-1.0.6/
+cpt *.sex ~/colorpro-1.0.6/
+cpt [A-Z]*[A-Z] ~/colorpro-1.0.6/
+
+---------
+
+6/13/09
+Let's release it finally!
+
+chmod 644 *
+
+~/
+tar colorpro-1.0.6.tar.gz -z colorpro-1.0.6

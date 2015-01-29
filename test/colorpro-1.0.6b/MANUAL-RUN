@@ -1,0 +1,24 @@
+Running ColorPro
+Once you have ColorPro installed, and your input set up, simply run:
+
+ colorpro
+
+ColorPro will automatically look for colorpro.in, the configuration file, which tells it where to find all of your images, etc.
+
+If your configuration file is named something other than colorpro.in, you may run colorpro followed by the name of your file:
+
+ colorpro mycolorpro.in
+
+You can also set the name of the output file:
+
+ colorpro mycolorpro.in myoutput.cat
+
+If you're confident that all images have the same PSF, and you know its FWHM is say 0.10" (arcsec), set the flag:
+
+ colorpro mycolorpro.in myoutput.cat -psffwhm 0.10
+
+There is also a -checkalign switch that you may set.  This is supposed to automatically check the alignment of the images by detecting objects and comparing their positions.  ColorPro currently can only correct for simple x,y offsets.  And the procedure is still in beta testing.  Requires the "match" program.
+
+(TO BE WRITTEN: what ColorPro does, step-by-step.)
+
+If ColorPro is interrupted at any point, it may be restarted, and it will pick up where it left off by noting which files have already been created.  An important corollary of this is that if you want ColorPro to re-run any portion of its analysis, you would need to delete the appropriate files.  For example, if you add an RMS image for the b-band, you will at minimum want to delete b-band catalogs and final catalogs.  Photometric uncertainties measured in the detection image will also be affected somewhat, so best to delete det_sexseg.cat, det_sexseg_sex.cat, dettoj2A_sexseg.cat, ...  When in doubt, it's best to simply start over in a new directory!

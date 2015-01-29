@@ -1,0 +1,19 @@
+ id	'%5d'       Object ID Number
+ RA	'%12.8f'    Right Ascension in decimal degrees
+ Dec	'% 12.8f'   Declination in decimal degrees
+ x	'%8.2f'	    x pixel coordinate
+ y	'%8.2f'	    y pixel coordinate
+ area	'%6d'	    Segment size
+ mag	'% 7.3f'    band magnitude
+ dmag	'% 7.3f'    Uncertainty in
+ zb	'%6.3f'	    BPZ most likely redshift
+ tb	'%4.2f'	    BPZ most likely spectal type
+ zbmin	'%6.3f'	    Lower limit (95% confidence)
+ zbmax	'%6.3f'	    Upper limit (95% confidence)
+ odds	'%5.3f'	    P(z) contained within 2*0.06*(1+z)
+ zml	'%5.2f'	    Maximum Likelihood most likely redshift
+ tml	'%4.2f'	    Maximum Likelihood most likely spectral type
+ chisq	'%7.3f'	    Poorness of BPZ fit: observed vs. model fluxes
+ chisq2	'%7.3f'	    Modified chisq: model fluxes given error bars
+ nfdet	'%5d'	    Number of filters in which object is detected
+ nfobs	'%5d'	    " in which object is observed (within FOV, no bad pixels, etc.)

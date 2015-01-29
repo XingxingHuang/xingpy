@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cosmolopy.distance</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cosmolopy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cosmolopy-module.html">Package&nbsp;cosmolopy</a> ::
+        Module&nbsp;distance
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module distance</h1><p class="nomargin-top"><span class="codelink"><a href="cosmolopy.distance-pysrc.html">source&nbsp;code</a></span></p>
+<p>Cosmological distance measures.</p>
+<p>Mostly follows David Hogg's pedagogical paper arXiv:astro-ph/9905116v4 .</p>
+<p>Distance units are Mpc, time units are seconds.</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Functions</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#get_omega_k_0" class="summary-sig-name">get_omega_k_0</a>(<span class="summary-sig-arg">**cosmo</span>)</span><br />
+      'Spatial curvature density' omega_k_0 for a cosmology (if needed).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#get_omega_k_0">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#set_omega_k_0" class="summary-sig-name">set_omega_k_0</a>(<span class="summary-sig-arg">cosmo</span>)</span><br />
+      Returns the cosmo dictionary with omega_k_0 set.
+See get_omega_k_0.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#set_omega_k_0">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#e_z" class="summary-sig-name">e_z</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The unitless Hubble expansion rate at redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#e_z">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#hubble_z" class="summary-sig-name">hubble_z</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The value of the Hubble constant at redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#hubble_z">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#hubble_distance_z" class="summary-sig-name">hubble_distance_z</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The value of the Hubble distance at redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#hubble_distance_z">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#comoving_integrand" class="summary-sig-name">comoving_integrand</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The derivative of the comoving distance with redshift: dd_c/dz.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_integrand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#comoving_distance" class="summary-sig-name">comoving_distance</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">z0</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The line-of-sight comoving distance (in Mpc) to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_distance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#proper_motion_distance" class="summary-sig-name">proper_motion_distance</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      Returns comoving_distance_transverse.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#proper_motion_distance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#comoving_distance_transverse" class="summary-sig-name">comoving_distance_transverse</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The transverse comoving distance (in Mpc) to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_distance_transverse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#angular_diameter_distance" class="summary-sig-name">angular_diameter_distance</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">z0</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The angular-diameter distance (Mpc) to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#angular_diameter_distance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#luminosity_distance" class="summary-sig-name">luminosity_distance</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The luminosity distance to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#luminosity_distance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#diff_comoving_volume" class="summary-sig-name">diff_comoving_volume</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The differential comoving volume element dV_c/dz/dSolidAngle.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#diff_comoving_volume">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#comoving_volume" class="summary-sig-name">comoving_volume</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The comoving volume out to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_volume">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#lookback_integrand" class="summary-sig-name">lookback_integrand</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The derivative of the lookback time with redshift: dt_L/dz.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#lookback_integrand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#lookback_time" class="summary-sig-name">lookback_time</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">z0</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The lookback time (in s) to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#lookback_time">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#age" class="summary-sig-name">age</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">use_flat</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The age of the universe as seen at redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#age">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#age_flat" class="summary-sig-name">age_flat</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The age of the universe assuming a flat cosmology.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#age_flat">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#quick_distance_function" class="summary-sig-name">quick_distance_function</a>(<span class="summary-sig-arg">function</span>,
+        <span class="summary-sig-arg">zmax</span>=<span class="summary-sig-default">20.0</span>,
+        <span class="summary-sig-arg">zmin</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">zstep</span>=<span class="summary-sig-default">0.001</span>,
+        <span class="summary-sig-arg">return_inverse</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">k</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      Return an interpolation function that will give distance as a
+funtion of z</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_distance_function">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#quick_age_function" class="summary-sig-name">quick_age_function</a>(<span class="summary-sig-arg">zmax</span>=<span class="summary-sig-default">20.0</span>,
+        <span class="summary-sig-arg">zmin</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">zstep</span>=<span class="summary-sig-default">0.001</span>,
+        <span class="summary-sig-arg">return_inverse</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      Return an interpolation function that will give age as a funtion of z</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_age_function">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#quick_redshift_age_function" class="summary-sig-name">quick_redshift_age_function</a>(<span class="summary-sig-arg">zmax</span>=<span class="summary-sig-default">20.0</span>,
+        <span class="summary-sig-arg">zmin</span>=<span class="summary-sig-default">0.0</span>,
+        <span class="summary-sig-arg">zstep</span>=<span class="summary-sig-default">0.001</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      Return an interpolation function giving z as a funtion of age
+of the universe.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_redshift_age_function">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#light_travel_distance" class="summary-sig-name">light_travel_distance</a>(<span class="summary-sig-arg">z</span>,
+        <span class="summary-sig-arg">z0</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The light travel distance to redshift z.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#light_travel_distance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cosmolopy.distance-module.html#redshift_d_light" class="summary-sig-name">redshift_d_light</a>(<span class="summary-sig-arg">dl</span>,
+        <span class="summary-sig-arg">z_guess</span>=<span class="summary-sig-default">6.0</span>,
+        <span class="summary-sig-arg">fmin_args</span>=<span class="summary-sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>,
+        <span class="summary-sig-arg">**cosmo</span>)</span><br />
+      The redshift corresponding to a given light travel distance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cosmolopy.distance-pysrc.html#redshift_d_light">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Variables</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'cosmolopy'"><code class="variable-quote">'</code><code class="variable-string">cosmolopy</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Function Details</span></td>
+</tr>
+</table>
+<a name="get_omega_k_0"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_omega_k_0</span>(<span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#get_omega_k_0">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>'Spatial curvature density' omega_k_0 for a cosmology (if needed).</p>
+<p>If omega_k_0 is specified, return it. Otherwise return:</p>
+<blockquote>
+1.0 - omega_M_0 - omega_lambda_0</blockquote>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_omega_k_0"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_omega_k_0</span>(<span class="sig-arg">cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#set_omega_k_0">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the cosmo dictionary with omega_k_0 set.
+See get_omega_k_0.</p>
+<p>Note that cosmo is not passed as **cosmo for once. This function
+modifies the dictionary in place and returns the result.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="e_z"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">e_z</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#e_z">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The unitless Hubble expansion rate at redshift z.</p>
+<p>In David Hogg's (arXiv:astro-ph/9905116v4) formalism, this is
+equivalent to E(z), defined in his eq. 14.</p>
+<p>Modified (JBJ, 29-Feb-2012) to include scalar w parameter</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="hubble_z"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">hubble_z</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#hubble_z">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The value of the Hubble constant at redshift z.</p>
+<p>Units are s^-1</p>
+<p>In David Hogg's (arXiv:astro-ph/9905116v4) formalism, this is
+equivalent to H_0 * E(z) (see his eq. 14).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="hubble_distance_z"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">hubble_distance_z</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#hubble_distance_z">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The value of the Hubble distance at redshift z.</p>
+<p>Units are Mpc.</p>
+<p>In David Hogg's (arXiv:astro-ph/9905116v4) formalism, this is
+equivalent to D_H / E(z) = c / (H_0 E(z)) [see his eq. 14], which
+appears in the definitions of many other distance measures.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="comoving_integrand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">comoving_integrand</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_integrand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The derivative of the comoving distance with redshift: dd_c/dz.</p>
+<p>See equation 15 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are Mpc.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="comoving_distance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">comoving_distance</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">z0</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_distance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The line-of-sight comoving distance (in Mpc) to redshift z.</p>
+<p>See equation 15 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are Mpc.</p>
+<p>Optionally calculate the integral from z0 to z.</p>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<dl class="rst-docutils">
+<dt>d_co: ndarray</dt>
+<dd>Comoving distance in Mpc.</dd>
+</dl>
+</div>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>d_co = cd.comoving_distance(6., **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Comoving distance to z=6 is %.1f Mpc&quot;</span> % (d_co)
+<span class="py-output">Comoving distance to z=6 is 8017.8 Mpc</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="proper_motion_distance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">proper_motion_distance</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#proper_motion_distance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns comoving_distance_transverse.</p>
+<p>Units are Mpc.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>d_M = cd.proper_motion_distance(6., **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Transverse comoving distance to z=6 is %.1f Mpc&quot;</span> % (d_M)
+<span class="py-output">Transverse comoving distance to z=6 is 8017.8 Mpc</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="comoving_distance_transverse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">comoving_distance_transverse</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_distance_transverse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The transverse comoving distance (in Mpc) to redshift z.</p>
+<p>This is also called the proper motion distance, D_M.</p>
+<p>See equation 16 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are Mpc.</p>
+<p>This is the distance d_m, such that the comoving distance between
+two events at the same redshift, but separated on the sky by some
+angle delta_theta is d_m * delta_theta.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>d_M = cd.comoving_distance_transverse(6., **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Transverse comoving distance to z=6 is %.1f Mpc&quot;</span> % (d_M)
+<span class="py-output">Transverse comoving distance to z=6 is 8017.8 Mpc</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="angular_diameter_distance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">angular_diameter_distance</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">z0</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#angular_diameter_distance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The angular-diameter distance (Mpc) to redshift z.</p>
+<p>Optionally find the angular diameter distance between objects at
+z0 and z (only implemented for omega_k_0 &gt;= 0).</p>
+<p>See equations 18-19 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are Mpc.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>d_a = cd.angular_diameter_distance(6., **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Angular diameter distance = %.1f Mpc&quot;</span> % (d_a)
+<span class="py-output">Angular diameter distance = 1145.4 Mpc</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="luminosity_distance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">luminosity_distance</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#luminosity_distance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The luminosity distance to redshift z.</p>
+<p>Units are Mpc.</p>
+<p>See, for example, David Hogg's arXiv:astro-ph/9905116v4</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="diff_comoving_volume"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">diff_comoving_volume</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#diff_comoving_volume">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The differential comoving volume element dV_c/dz/dSolidAngle.</p>
+<p>Dimensions are volume per unit redshift per unit solid angle.</p>
+<p>Units are Mpc**3 Steradians^-1.</p>
+<p>See David Hogg's arXiv:astro-ph/9905116v4, equation 28.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>dVc = cd.diff_comoving_volume(6.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;dV/dz/dSolidAngle at z=6 is %.3g Mpc**3&quot;</span> % (dVc)
+<span class="py-output">dV/dz/dSolidAngle at z=6 is 2.63e+10 Mpc**3</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="comoving_volume"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">comoving_volume</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#comoving_volume">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The comoving volume out to redshift z.</p>
+<p>See David Hogg's arXiv:astro-ph/9905116v4, equation 29.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>Vc = cd.comoving_volume(6.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Vc = %.3g Mpc**3&quot;</span> % (Vc)
+<span class="py-output">Vc = 2.16e+12 Mpc**3</span></pre>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.0, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>Vc = cd.comoving_volume(6.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Vc = %.3g Mpc**3&quot;</span> % (Vc)
+<span class="py-output">Vc = 1.68e+12 Mpc**3</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="lookback_integrand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lookback_integrand</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#lookback_integrand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The derivative of the lookback time with redshift: dt_L/dz.</p>
+<p>See equation 30 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are seconds.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="lookback_time"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lookback_time</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">z0</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#lookback_time">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The lookback time (in s) to redshift z.</p>
+<p>See equation 30 of David Hogg's arXiv:astro-ph/9905116v4</p>
+<p>Units are s.</p>
+<p>Optionally calculate the integral from z0 to z.</p>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<dl class="rst-docutils">
+<dt>t_look: ndarray</dt>
+<dd>Lookback time in seconds.</dd>
+</dl>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="age"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">age</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">use_flat</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#age">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The age of the universe as seen at redshift z.</p>
+<p>Age at z is lookback time at z'-&gt;Infinity minus lookback time at z.</p>
+<p>See also: lookback_time.</p>
+<p>Units are s.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>t = cd.age(6.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;age at z=6.0 = %.3g Gyr&quot;</span> % (t/cc.Gyr_s)
+<span class="py-output">age at z=6.0 = 0.892 Gyr</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="age_flat"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">age_flat</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#age_flat">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The age of the universe assuming a flat cosmology.</p>
+<p>Units are s.</p>
+<p>Analytical formula from Peebles, p. 317, eq. 13.2.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>t = cd.age_flat(6.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;age at z=6.0 is %.3g Gyr&quot;</span> % (t/cc.Gyr_s)
+<span class="py-output">age at z=6.0 is 0.892 Gyr</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="quick_distance_function"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">quick_distance_function</span>(<span class="sig-arg">function</span>,
+        <span class="sig-arg">zmax</span>=<span class="sig-default">20.0</span>,
+        <span class="sig-arg">zmin</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">zstep</span>=<span class="sig-default">0.001</span>,
+        <span class="sig-arg">return_inverse</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">k</span>=<span class="sig-default">3</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_distance_function">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an interpolation function that will give distance as a
+funtion of z</p>
+<p>If return_inverse is True, will also return a function giving z as
+a function of distance.</p>
+<div class="rst-section" id="rst-inputs">
+<h1 class="heading">Inputs</h1>
+<p>function -- the distance function to interpolate (can be any
+callable that takes a redshift argument plus cosmology keywords).</p>
+<p>k -- spline order (<code class="link">scipy.interpolate.InterpolatedUnivariateSpline</code>)</p>
+</div>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<p>distfunc</p>
+<p>or</p>
+<p>distfunc, zfunc</p>
+</div>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>distfunc, redfunc = cd.quick_distance_function(cd.luminosity_distance, return_inverse=True, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>d = distfunc(6.3333)
+<span class="py-prompt">&gt;&gt;&gt; </span>z = redfunc(d)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">&quot;%.1g&quot;</span> % (distfunc(6.3333)/cd.luminosity_distance(6.3333, **cosmo) - 1.0)
+<span class="py-output">'-2e-16'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-string">&quot;%.1g&quot;</span> % (z/6.3333 - 1.0)
+<span class="py-output">'0'</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="quick_age_function"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">quick_age_function</span>(<span class="sig-arg">zmax</span>=<span class="sig-default">20.0</span>,
+        <span class="sig-arg">zmin</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">zstep</span>=<span class="sig-default">0.001</span>,
+        <span class="sig-arg">return_inverse</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_age_function">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an interpolation function that will give age as a funtion of z</p>
+<p>Units are s.</p>
+<p>If return_inverse is True, will also return a function giving z as
+a function of age.</p>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<p>agefunc</p>
+<p>or</p>
+<p>agefunc, redfunc</p>
+</div>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>agefunc = cd.quick_age_function(**cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>t = agefunc(6.0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;age at z=6.0 is %.3g Gyr&quot;</span> % (t/cc.Gyr_s)
+<span class="py-output">age at z=6.0 is 0.892 Gyr</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="quick_redshift_age_function"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">quick_redshift_age_function</span>(<span class="sig-arg">zmax</span>=<span class="sig-default">20.0</span>,
+        <span class="sig-arg">zmin</span>=<span class="sig-default">0.0</span>,
+        <span class="sig-arg">zstep</span>=<span class="sig-default">0.001</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#quick_redshift_age_function">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an interpolation function giving z as a funtion of age
+of the universe.</p>
+<p>Units of time are s.</p>
+<div class="rst-section" id="rst-returns">
+<h1 class="heading">Returns</h1>
+<p>redfunc</p>
+</div>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>redfunc = cd.quick_redshift_age_function(**cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>z = redfunc(1.0 * cc.Gyr_s)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;When age=1.0Gyr z=%.2f&quot;</span> % (z)
+<span class="py-output">When age=1.0Gyr z=5.49</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="light_travel_distance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">light_travel_distance</span>(<span class="sig-arg">z</span>,
+        <span class="sig-arg">z0</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#light_travel_distance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The light travel distance to redshift z.</p>
+<p>Units are Mpc.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>dlookback = cd.light_travel_distance(3.0, 2.0, **cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Lookback distance from z=2 to 3 is %.2g Mpc&quot;</span> % (dlookback)
+<span class="py-output">Lookback distance from z=2 to 3 is 3.3e+02 Mpc</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="redshift_d_light"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">redshift_d_light</span>(<span class="sig-arg">dl</span>,
+        <span class="sig-arg">z_guess</span>=<span class="sig-default">6.0</span>,
+        <span class="sig-arg">fmin_args</span>=<span class="sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>,
+        <span class="sig-arg">**cosmo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cosmolopy.distance-pysrc.html#redshift_d_light">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The redshift corresponding to a given light travel distance.</p>
+<p>Units are the same as light_travel_distance (Mpc).</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.distance <span class="py-keyword">as</span> cd
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> cosmolopy.constants <span class="py-keyword">as</span> cc
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = {<span class="py-string">'omega_M_0'</span> : 0.3, <span class="py-string">'omega_lambda_0'</span> : 0.7, <span class="py-string">'h'</span> : 0.72}
+<span class="py-prompt">&gt;&gt;&gt; </span>cosmo = cd.set_omega_k_0(cosmo)
+<span class="py-prompt">&gt;&gt;&gt; </span>z = cd.redshift_d_light(10. * cc.c_light_Mpc_Gyr, **cosmo)
+<span class="py-output">Optimization terminated successfully.</span>
+<span class="py-output">         Current function value: 0.000112</span>
+<span class="py-output">         Iterations: 26</span>
+<span class="py-output">         Function evaluations: 52</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">print</span> <span class="py-string">&quot;Redshift for a lookback time of 10Gyr is z=%.3f&quot;</span> % (z)
+<span class="py-output">Redshift for a lookback time of 10Gyr is z=2.025</span></pre>
+</div>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="cosmolopy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Mar 27 20:49:14 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

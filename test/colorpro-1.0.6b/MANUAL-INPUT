@@ -1,0 +1,267 @@
+ColorPro Input: colorpro.in
+
+Here, we walk you through the contents of the configuration file colorpro.in:
+
+#######################################
+# IMAGES & NICKNAMES
+
+b    /mnt/datos/coe/UDF/h_udf_wfc_b_drz_img.fits
+j    /mnt/datos/coe/UDF/j.fits
+
+First we define our set of images. We try to give each image a simple nickname.  This name will be used in the final catalog.  Here, "b" will give the magnitudes for that filter.  Note if your image is already named "b.fits", you may leave the 2nd column blank (that is, include a line with simply "b").
+
+
+#######################################
+# BACKGROUND ALREADY SUBTRACTED
+ 
+b
+
+By default, ColorPro will subtract a global background from each image, according to your parameters (see below).  If you are satisfied that the background has already been well subtracted for a given filter(s), note so here.  (Note that you may still choose to subtract a LOCAL background.)
+
+
+If you have RMS and/or weight images, you may declare them next (otherwise SExtractor will create an RMS image from the data).
+
+#######################################
+# RMS IMAGES
+
+j  /mnt/datos/coe/UDF/laptop/h_nic3udff110wsdv_img.fits
+
+A link "j_rms.fits" will be created pointing to the file given.  Again, if your RMS image is already named "j_rms.fits", a line containing "j" will suffice.  (Note that ColorPro will not automatically search for your "j_rms.fits".  You must declare it here.)
+
+
+#######################################
+# WEIGHT IMAGES
+
+b
+j  /mnt/datos/coe/UDF/laptop/h_nic3udff110wwt_img.fits
+
+Here we have a file named "b_weight.fits" and a "j" weight file with a longer name.  Exposure time maps make good inputs for weight files.
+
+
+The next three are probably self-explanatory...
+
+#######################################
+# ZEROPOINTS
+
+b 25.673
+j 23.4034
+
+
+#######################################
+# EXTINCTION
+
+b 0.03257
+j 0.00714
+
+
+#######################################
+# SATURATION level (in ADUs) at which arises saturation
+# (if not defined, takes SATUR_LEVEL from colorpro.in or default.sexseg)
+
+b 50000
+
+
+Now, for the object detection(s).  If you've already created your segmentation map, you're ahead of the game!  Simply call it (or link to it with) "segm.fits".
+
+However, if you're like most people, you let SExtractor detect images for you.  In this next section, we'll define which images we'd like to run detection on, and with which parameters.
+
+#######################################
+# DETECTION IMAGES
+
+det  det_bviz1.sex
+---
+b / 1.128
+v / 2.182
+i / 2.252
+z / 1.644
+
+det_jh  det_jh1.sex
+---
+j / 4.023E-4
+h / 4.199E-4
+
+In this complicated example, we are running SExtractor object detection on 2 images: det & det_jh.  "det.fits" has yet to be created.  It is a detection image created by adding images b, v, i, & z, according to the following formula:
+
+det = (b / 1.128) + (v / 2.182) + (i / 2.252) + (z / 1.644)
+
+Finally, det_bviz1.sex is a standard SExtractor configuration file that you create.  SExtractor will be run on det.fits using det_bviz1.sex:
+
+sex det.fits -c det_bviz1.sex
+
+NOTE: Unfortunately, you must refrain from calling your configuration file det.sex.  We will later create a det.sex to obtain the photometry in this image...
+
+Similary, det_jh.fits will be created from j.fits & h.fits.  SExtractor will be run using the det_jh1.sex configuration file that you create.
+
+#######################################
+# PHOTOMETRY FRAME (IF DIFFERENT FROM DETECTION IMAGE)
+ 
+Normally, the first "DETECTION IMAGE" (det.fits above) will be the one degraded to match the seeing of all the other images. In rare cases, you will want to override this.  Suppose you are only interested in detecting objects in an image with relatively poor resolution/seeing. For example, we have only the b & j images, and we want to detect objects in j (poorer resolution) while obtaining robust b-j colors.  In this case, we would set j to be the "detection image" above, while setting b to be the "PHOTOMETRY FRAME" in this section here.
+
+
+#######################################
+# ALIGNED TO PHOTOMETRY FRAME (OPTIONAL)
+#  (NORMALLY ColorPro CHECKS IMAGE ALIGNMENT BASED ON THE WCS HEADERS.
+#   YOU MAY DECLARE IMAGES HERE TO INSIST THAT THEY ARE ALIGNED
+#    TO THE PHOTOMETRY FRAME, REGARDLESS OF THEIR WCS HEADERS)
+
+Sometimes you have images that are perfectly aligned, but the WCS headers say otherwise. Declare images here to insist they are aligned to the photometry frame (defined above). ColorPro will ignore the WCS headers of these images.
+
+
+#######################################
+# SEGMENTATION MAPS
+# Image  Detection  startid  frac=1.5
+
+segm
+---
+STi       i
+STz       z     +30000
+STjh    det_jh  +40000
+det     det      50001
+det_jh  det_jh   60001
+
+In the UDF, we detect most objects in the i-band image (the deepest).  But then we add a z-band detection to catch i-band dropouts.  Similarly, a j+h detection finds extremely red objects.  And we add a b+v+i+z detection to probe for the faintest galaxies detectable (and to help catch those faint blue galaxies!).
+
+All of these object detections are automatically combined into a single comprehensive segmentation map.  Thanks to SExSeg we are able to force these object definitions into SExtractor for photometric analysis.
+
+In this example, we start with 3 pre-made segmentation maps, which were released by groups at STScI.  STisegm.fits is the i-band segmentation map.  In the 2nd column, we declare it as having come from the i-band filter.  (This isn't really necessary, except to define the WCS orientation of the segmentation map.)
+
+Next, objects in the z-band segmentation map STzsegm.fits will be added to those objects already defined in STisegm.fits.  The object ID numbers in STzsegm.fits will be maintained with 30,000 being added to them (to avoid conflict with the i-band IDs).  Similarly, j+h detections from STjhsegm.fits will be added (with 40,000 being added to the ID numbers).
+
+Our detections detsegm.fits & det_jhsegm.fits are added next.  The ID numbers in these segmentation maps have no significance yet, so we allow them to be renumbered.  New objects gained from the det.fits detection will be added to the segmentation map beginning with the number 50,001.  (Note the 50001 without the + sign at the front.)  Similarly, our own j+h detections will be added with numbers beginning at 60,001.
+
+There is a 4th column "frac" that allows input if you want to play with the parameters for the addition of new objects...
+
+#######################################
+# PSF IMAGES
+# (IF NOT DECLARED, THEN ASSUMED TO HAVE NAMES bpsf.fits, vpsf.fits, etc.)
+# (OR TO DECLARE THAT ALL IMAGES HAVE THE SAME PSF WITH FWHM = 0.10":  FWHM  0.10)
+
+Good PSF images are the key to good photometry. ColorPro doesn't help you obtain the PSFs of the images (but maybe it will in the future...). For now you must obtain them yourself. (We recommend daophot's "psf".) When you're done, declare the PSF images here for each filter (like you did for Images & Nicknames). ColorPro will create links to your files named "bpsf.fits", "vpsf.fits", etc. If you leave this section blank, ColorPro will look for images "bpsf.fits", "vpsf.fits", etc.
+
+Or, if you're confident that all images have the same PSF, and you know its FWHM is, say, 0.10" (arcsec), you may declare it here:
+
+FWHM  0.10
+
+---
+
+Finally, we define our SExSeg parameters, both SExtractor configuration parameters and output parameters.  They're together here in one file, where SExtractor asks for 2: .sex & .param.  Note there is no need to define most of the parameters, for two reasons: 1) ColorPro will fill them in for each filter; 2) many are irrelevant for SExSeg as the detection has already been performed! (no reason to define the deblending parameters, for example.
+
+Here BACK_SIZE and BACK_FILTERSIZE are defined for the global background subtraction, which will be applied to every filter not mentioned in the "BACKGROUND ALREADY SUBTRACTED" section.  Images b-back.fits, etc. will be created.
+
+#######################################
+# CONFIGURATION (PHOTOMETRY FRAME)
+ 
+GAIN            0               # detector gain in e-/ADU.
+PHOT_APERTURES  30              # MAG_APER aperture diameter(s) in pixels
+BACK_SIZE       128             # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE 5               # Background filter: <size> or <width>,<height>
+BACKPHOTO_TYPE  LOCAL           # can be "GLOBAL" or "LOCAL" (*)
+BACKPHOTO_THICK 26              # thickness of the background LOCAL annulus (*)
+SATUR_LEVEL    55555        # level (in ADUs) at which arises saturation ***
+ 
+#######################################
+# PARAMETERS (* = REQUIRED)
+ 
+*NUMBER
+*X_IMAGE
+*Y_IMAGE
+*XPEAK_IMAGE
+*YPEAK_IMAGE
+*ISOAREA_IMAGE
+*FLUX_MAX
+*MAG_AUTO
+*MAGERR_AUTO
+MAG_APER
+MAGERR_APER
+*MAG_ISO
+*MAGERR_ISO
+MAG_PROFILE
+MAGERR_PROFILE
+*FLUX_AUTO
+*FLUXERR_AUTO
+FLUX_APER
+FLUXERR_APER
+*FLUX_ISO
+*FLUXERR_ISO
+FWHM_IMAGE
+FLUX_RADIUS
+KRON_RADIUS
+A_IMAGE
+B_IMAGE
+THETA_IMAGE
+CLASS_STAR
+FLAGS
+
+
+#######################################
+# OUTPUT CATALOG
+# (DEFAULT NAME IS THE NAME OF THIS CONFIG FILE, 
+#  BUT WITH .cat AS THE EXTENSION, AS IN colorpro.cat)
+
+UDFsample
+
+Your final photometric and BPZ catalogs will be named
+UDFsample.cat and UDFsample_bpz.cat, respectively.
+If you leave this line blank, they will be named
+colorpro.cat and colorpro_bpz.cat
+(unless you provided their name on the command line).
+
+---
+
+When ColorPro is finished obtaining your photometric catalog,
+it will run BPZ on it to obtain photometric redshifts
+if you supply the approrpriate input below:
+
+#######################################
+#              BPZ SETUP              #
+#######################################
+
+
+#######################################
+# FILTERS
+
+b	HST_ACS_WFC_F435W
+v	HST_ACS_WFC_F475W
+i	HST_ACS_WFC_F555W
+z	HST_ACS_WFC_F625W
+j	HST_ACS_WFC_F775W
+h	HST_ACS_WFC_F850LP
+
+Filter response curves to be found in $BPZPATH/FILTER/*.res.
+Each file contains two columns: wavelength (in Angstroms) and amplitude.
+
+
+#######################################
+# VEGA
+# (FILTERS FOR WHICH MAGNITUDES ARE IN VEGA
+#  FILTERS NOT LISTED HERE ARE ASSUMED TO BE AB MAGS)
+
+v
+j
+
+
+
+#######################################
+# ZEROPOINT UNCERTAINTIES
+# ONLY USED BY BPZ -- ADDED IN QUADRATURE TO MEASURED UNCERTAINTIES
+# IF NOT DECLARED, DEFAULT IS 0.01
+
+b 0.059
+z 0.3
+
+#################################
+# PRIOR FILTER
+# BPZ'S MAGNITUDE PRIOR WILL BE BASED ON THE MAGNITUDES IN THIS FILTER
+# IF LEFT BLANK, COLORPRO WILL AUTOMATICALLY SELECT THE FILTER WITH THE MOST DETECTIONS
+
+
+#################################
+# BPZ OPTIONS
+
+INTERP	2
+CHECK	yes	# MODEL vs. OBSERVED FLUX, PLOTS, ETC.
+PROBS_LITE	# OUTPUT P(z) FOR ALL GALAXIES
+
+Here you can set all the BPZ command line options.
+If you leave the name blank for PROBS_LITE, we'll call it UDFsample.probs
+(if UDFsample_bpz.cat is your output BPZ catalog).

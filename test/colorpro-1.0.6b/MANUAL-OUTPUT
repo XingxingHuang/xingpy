@@ -1,0 +1,43 @@
+ColorPro Output
+The end product is: colorpro.cat, colorpro_bpz.cat
+(unless you provide a different name).
+(A more detailed catalog is also produced: sexseg.cat)
+
+
+colorpro.cat
+------------
+
+Object ID numbers correspond to the segmentation map segm.fits. 
+For each object, the x, y position is given, followed by the segment area (in pixels), and the PSF-corrected, aperture-matched photometry in all filters.
+
+Output columns b & db give the magnitude and magnitude uncertainty respectively for image b. 
+Non-detections are given as b=99, db={magnitude limit, 1-sigma within object's aperture}. 
+Non-observations (outside the filter's FOV, or containing saturated or other bad pixels) are given as b=-99. 
+Note that this is the format expected by the Bayesian Photo-z software BPZ.
+
+
+phot.cat
+--------
+More detailed version of the previous catalog
+Contains PSF corrections, etc.
+
+
+colorpro_bpz.cat
+----------------
+
+id: Corresponds to segmenation map
+zb: BPZ most likely redshift
+zbmin..zbmax : 95% confidence interval
+tb: BPZ most likely spectal type
+odds: P(z) contained within 2*0.06*(1+z)
+zml, tml: Maximum Likelihood most likely redshift & spectral type
+chisq: Poorness of BPZ fit: observed vs. model fluxes
+chisq2: Modified chisq: model fluxes given error bars
+MO: Magnitude used for Prior estimation
+nfdet: # of filters in which object was detected
+nfdet: # of filters in which object was observed
+       (within FOV and with no bad/saturated pixels)
+
+colorpro_photbpz.cat
+--------------------
+Combines photometry and BPZ results into one catalog.

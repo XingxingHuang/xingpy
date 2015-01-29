@@ -1,0 +1,16 @@
+# TITLE: Condor parameters file
+# CREATED: 20070522 davidabreu@users.sourceforge.net
+# File with with parameters to launch a simulation using condor_submit
+#
+Universe	= vanilla
+Executable	= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/SCRIPTS/GE_launch_complete_simulation.py 
+Args		= -p /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/ParamFiles/nacho.par 1000
+#Requirements	= Memory >= 1000 && Arch == "INTEL" && OpSys == "LINUX"
+Requirements	= Arch == "INTEL" && OpSys == "LINUX"
+Rank		= KFlops
+Log		= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Logs/my_job$(Process).log
+Output		= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Logs/my_job$(Process).stdout
+Error		= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Logs/my_job$(Process).stderr
+InitialDir	= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Initial/my_job$(Process)
+Getenv		= True
+Queue 100

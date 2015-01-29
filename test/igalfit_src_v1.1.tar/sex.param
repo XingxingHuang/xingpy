@@ -1,0 +1,11 @@
+# SExtractor parameters file made by sexparam on Fri Feb 21 16:22:45 2014
+NUMBER
+ISOAREA_IMAGE
+X_IMAGE
+Y_IMAGE
+MAG_AUTO
+MAGERR_AUTO
+A_IMAGE
+B_IMAGE
+THETA_IMAGE
+FLAGS

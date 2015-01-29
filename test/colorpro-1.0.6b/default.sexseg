@@ -1,0 +1,51 @@
+#######################################
+# CONFIGURATION (PHOTOMETRY FRAME)
+
+CATALOG_NAME	default_sexseg.cat	# name of the output catalog
+ANALYSIS_MINAREA        1               # minimum number of pixels above threshold
+ANALYSIS_THRESH 1             # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+PHOT_APERTURES	6      	# MAG_APER aperture diameter(s) in pixels
+SATUR_LEVEL	50000		# level (in ADUs) at which arises saturation ***
+MAG_ZEROPOINT	25.673		# magnitude zero-point *** FROM COMMAND LINE
+GAIN		0		# detector gain in e-/ADU.
+PIXEL_SCALE	0.03		# size of pixel in arcsec (0=use FITS WCS info).
+SEEING_FWHM	0.088		# stellar FWHM in arcsec
+BACK_SIZE       128             # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE 5               # Background filter: <size> or <width>,<height>
+BACKPHOTO_TYPE	LOCAL		# can be "GLOBAL" or "LOCAL" (*)
+BACKPHOTO_THICK 26		# thickness of the background LOCAL annulus (*)
+WEIGHT_TYPE	NONE, MAP_WEIGHT	# Since there is no background
+WEIGHT_IMAGE	default_weight.fits      # MAP_WEIGHT
+
+#######################################
+# PARAMETERS (* = REQUIRED)
+
+*NUMBER
+*X_IMAGE
+*Y_IMAGE
+*XPEAK_IMAGE
+*YPEAK_IMAGE
+*ISOAREA_IMAGE
+*FLUX_MAX
+*MAG_AUTO
+*MAGERR_AUTO
+MAG_APER
+MAGERR_APER
+*MAG_ISO
+*MAGERR_ISO
+MAG_PROFILE
+MAGERR_PROFILE
+*FLUX_AUTO
+*FLUXERR_AUTO
+FLUX_APER
+FLUXERR_APER
+*FLUX_ISO
+*FLUXERR_ISO
+FWHM_IMAGE
+FLUX_RADIUS
+KRON_RADIUS
+A_IMAGE
+B_IMAGE
+THETA_IMAGE
+CLASS_STAR
+FLAGS

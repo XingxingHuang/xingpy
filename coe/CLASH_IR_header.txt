@@ -1,0 +1,147 @@
+## Photometric + photo-z (BPZ) catalog for all CLASH clusters, IR detections
+## Note: photo-z estimates are intended for galaxies only
+## Stars may be identified as having higher values of SExtracor stellarity
+## Based on 0.065"/pix images produced by AMK's mosaicdrizzle
+## Objects detected in a weighted sum of IR images
+## Not pruned: a few < 5-sigma detections may remain (flagsig > 0)
+##
+## Position, aperture, and shape measurements determined in the detection image
+## Photometry measured in isophotal apertures
+## For each filter, we provide:
+##  - magnitude & uncertainty
+##  - flux & uncertainty
+##  - detection significance
+## Both fluxes and magnitudes have been corrected for:
+##  - galactic extinction: E(B-V) = x.xxxxx (varies with cluster)
+## mag, magerr =  99, 1-sigma limit: non-detection (flux < 0)
+## mag, magerr = -99, 0: unobserved (outside FOV, in chip gap, etc.)
+## This catalog was created by the CLASH Image Pipeline
+##
+#  1 id              Object ID Number
+#  2 RA              Right Ascension in decimal degrees
+#  3 Dec             Declination in decimal degrees
+#  4 x               x pixel coordinate
+#  5 y               y pixel coordinate
+#  6 fwhm            Full width at half maximum (arcsec)
+#  7 area            Isophotal aperture area (pixels)
+#  8 stel            SExtractor "stellarity" (1 = star; 0 = galaxy)
+#  9 ell             Ellipticity = 1 - B/A
+# 10 flag5sig        0 = probably real; 1 = probable CR; 2 = no 5-sigma detection
+# 11 nf5sig          Number of filters with a 5-sigma detection
+# 12 nfcr5sig        Number of CR-vulnerable filters with a 5-sigma detection
+# 13 nfobs           Number of filters observed (not in chip gap, etc.)
+# 14 f225w_mag       F225W isophotal magnitude (ZP = 24.0966)
+# 15 f225w_magerr    F225W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 16 f225w_apcor     F225W aperture correction
+# 17 f225w_flux      F225W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 18 f225w_fluxerr   F225W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 19 f225w_sig       F225W detection significance
+# 20 f275w_mag       F275W isophotal magnitude (ZP = 24.1742)
+# 21 f275w_magerr    F275W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 22 f275w_apcor     F275W aperture correction
+# 23 f275w_flux      F275W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 24 f275w_fluxerr   F275W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 25 f275w_sig       F275W detection significance
+# 26 f336w_mag       F336W isophotal magnitude (ZP = 24.6453)
+# 27 f336w_magerr    F336W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 28 f336w_apcor     F336W aperture correction
+# 29 f336w_flux      F336W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 30 f336w_fluxerr   F336W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 31 f336w_sig       F336W detection significance
+# 32 f390w_mag       F390W isophotal magnitude (ZP = 25.3714)
+# 33 f390w_magerr    F390W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 34 f390w_apcor     F390W aperture correction
+# 35 f390w_flux      F390W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 36 f390w_fluxerr   F390W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 37 f390w_sig       F390W detection significance
+# 38 f435w_mag       F435W isophotal magnitude (ZP = 25.6578)
+# 39 f435w_magerr    F435W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 40 f435w_apcor     F435W aperture correction
+# 41 f435w_flux      F435W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 42 f435w_fluxerr   F435W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 43 f435w_sig       F435W detection significance
+# 44 f475w_mag       F475W isophotal magnitude (ZP = 26.0593)
+# 45 f475w_magerr    F475W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 46 f475w_apcor     F475W aperture correction
+# 47 f475w_flux      F475W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 48 f475w_fluxerr   F475W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 49 f475w_sig       F475W detection significance
+# 50 f555w_mag       F555W isophotal magnitude (ZP = 25.7347)
+# 51 f555w_magerr    F555W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 52 f555w_apcor     F555W aperture correction
+# 53 f555w_flux      F555W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 54 f555w_fluxerr   F555W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 55 f555w_sig       F555W detection significance
+# 56 f606w_mag       F606W isophotal magnitude (ZP = 26.4912)
+# 57 f606w_magerr    F606W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 58 f606w_apcor     F606W aperture correction
+# 59 f606w_flux      F606W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 60 f606w_fluxerr   F606W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 61 f606w_sig       F606W detection significance
+# 62 f625w_mag       F625W isophotal magnitude (ZP = 25.9067)
+# 63 f625w_magerr    F625W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 64 f625w_apcor     F625W aperture correction
+# 65 f625w_flux      F625W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 66 f625w_fluxerr   F625W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 67 f625w_sig       F625W detection significance
+# 68 f775w_mag       F775W isophotal magnitude (ZP = 25.6651)
+# 69 f775w_magerr    F775W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 70 f775w_apcor     F775W aperture correction
+# 71 f775w_flux      F775W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 72 f775w_fluxerr   F775W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 73 f775w_sig       F775W detection significance
+# 74 f814w_mag       F814W isophotal magnitude (ZP = 25.9593)
+# 75 f814w_magerr    F814W isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 76 f814w_apcor     F814W aperture correction
+# 77 f814w_flux      F814W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 78 f814w_fluxerr   F814W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 79 f814w_sig       F814W detection significance
+# 80 f850lp_mag      F850LP isophotal magnitude (ZP = 24.8425)
+# 81 f850lp_magerr   F850LP isophotal magnitude uncertainty (Edges vulnerable to cosmic rays)
+# 82 f850lp_apcor    F850LP aperture correction
+# 83 f850lp_flux     F850LP isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 84 f850lp_fluxerr  F850LP isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 85 f850lp_sig      F850LP detection significance
+# 86 f105w_mag       F105W isophotal magnitude (ZP = 26.2707)
+# 87 f105w_magerr    F105W isophotal magnitude uncertainty
+# 88 f105w_apcor     F105W aperture correction
+# 89 f105w_flux      F105W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 90 f105w_fluxerr   F105W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 91 f105w_sig       F105W detection significance
+# 92 f110w_mag       F110W isophotal magnitude (ZP = 26.8251)
+# 93 f110w_magerr    F110W isophotal magnitude uncertainty
+# 94 f110w_apcor     F110W aperture correction
+# 95 f110w_flux      F110W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 96 f110w_fluxerr   F110W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 97 f110w_sig       F110W detection significance
+# 98 f125w_mag       F125W isophotal magnitude (ZP = 26.2474)
+# 99 f125w_magerr    F125W isophotal magnitude uncertainty
+# 100 f125w_apcor     F125W aperture correction
+# 101 f125w_flux      F125W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 102 f125w_fluxerr   F125W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 103 f125w_sig       F125W detection significance
+# 104 f140w_mag       F140W isophotal magnitude (ZP = 26.4645)
+# 105 f140w_magerr    F140W isophotal magnitude uncertainty
+# 106 f140w_apcor     F140W aperture correction
+# 107 f140w_flux      F140W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 108 f140w_fluxerr   F140W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 109 f140w_sig       F140W detection significance
+# 110 f160w_mag       F160W isophotal magnitude (ZP = 25.9559)
+# 111 f160w_magerr    F160W isophotal magnitude uncertainty
+# 112 f160w_apcor     F160W aperture correction
+# 113 f160w_flux      F160W isophotal flux  (multiplied by x.xxx to correct for extinction (-y.yyy mag))
+# 114 f160w_fluxerr   F160W isophotal flux uncertainty    (x.xxx factor applied here as well)
+# 115 f160w_sig       F160W detection significance
+# 116 zb              BPZ most likely redshift
+# 117 zbmin           Lower limit (95% confidence)
+# 118 zbmax           Upper limit (95% confidence)
+# 119 tb              BPZ most likely spectral type
+# 120 odds            P(z) contained within zb +/- 2*0.02*(1+z)
+# 121 chisq           Poorness of BPZ fit: observed vs. model fluxes
+# 122 chisq2          Modified chisq: model fluxes given error bars
+# 123 M0              Magnitude used as a prior
+# 124 zml             Maximum Likelihood most likely redshift
+# 125 tml             Maximum Likelihood most likely spectral type
+# 126 clusnum         Cluster Number
+##
+##  id        RA          Dec         x         y        fwhm    area  stel   ell   flag5sig  nf5sig  nfcr5sig  nfobs  f225w_mag  f225w_magerr  f225w_apcor   f225w_flux   f225w_fluxerr  f225w_sig  f275w_mag  f275w_magerr  f275w_apcor   f275w_flux   f275w_fluxerr  f275w_sig  f336w_mag  f336w_magerr  f336w_apcor   f336w_flux   f336w_fluxerr  f336w_sig  f390w_mag  f390w_magerr  f390w_apcor   f390w_flux   f390w_fluxerr  f390w_sig  f435w_mag  f435w_magerr  f435w_apcor   f435w_flux   f435w_fluxerr  f435w_sig  f475w_mag  f475w_magerr  f475w_apcor   f475w_flux   f475w_fluxerr  f475w_sig  f555w_mag  f555w_magerr  f555w_apcor   f555w_flux   f555w_fluxerr  f555w_sig  f606w_mag  f606w_magerr  f606w_apcor   f606w_flux   f606w_fluxerr  f606w_sig  f625w_mag  f625w_magerr  f625w_apcor   f625w_flux   f625w_fluxerr  f625w_sig  f775w_mag  f775w_magerr  f775w_apcor   f775w_flux   f775w_fluxerr  f775w_sig  f814w_mag  f814w_magerr  f814w_apcor   f814w_flux   f814w_fluxerr  f814w_sig  f850lp_mag  f850lp_magerr  f850lp_apcor  f850lp_flux   f850lp_fluxerr  f850lp_sig  f105w_mag  f105w_magerr  f105w_apcor   f105w_flux   f105w_fluxerr  f105w_sig  f110w_mag  f110w_magerr  f110w_apcor   f110w_flux   f110w_fluxerr  f110w_sig  f125w_mag  f125w_magerr  f125w_apcor   f125w_flux   f125w_fluxerr  f125w_sig  f140w_mag  f140w_magerr  f140w_apcor   f140w_flux   f140w_fluxerr  f140w_sig  f160w_mag  f160w_magerr  f160w_apcor   f160w_flux   f160w_fluxerr  f160w_sig    zb    zbmin   zbmax    tb    odds   chisq    chisq2      M0      zml   tml   clusnum

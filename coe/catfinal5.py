@@ -1,0 +1,117 @@
+from coeio import *
+from catsave import catsave
+
+oldlabelspecs = """
+ id     '%5d'       Object ID Number
+ RA     '%11.7f'    Right Ascension in decimal degrees
+ Dec    '% 11.7f'   Declination in decimal degrees
+ x      '%8.3f'     x pixel coordinate
+ y      '%8.3f'     y pixel coordinate
+ fwhm   '%7.3f'     Full width at half maximum (arcsec)
+ area   '%5d'       Isophotal aperture area (pixels)
+ stel   '%4.2f'     SExtractor "stellarity" (1 = star; 0 = galaxy)
+ ell    '%5.3f'     Ellipticity = 1 - B/A
+
+ flag5sig '%1d'  0 = probably real; 1 = probable CR; 2 = no 5-sigma detection
+ nf5sig   '%2d'  Number of filters with a 5-sigma detection
+ nfcr5sig '%2d'  Number of CR-vulnerable filters with a 5-sigma detection
+ nfobs    '%2d'  Number of filters observed (not in chip gap, etc.)
+
+ *_mag     '% 9.4f'  FILT + ' isophotal magnitude (%s)' % zptxt
+ *_magerr  '% 8.4f'  FILT + ' isophotal magnitude uncertainty' + crtxt
+ *_apcor   '% 7.4f'  FILT + ' aperture correction'
+ *_flux    '% 12.4f' FILT + ' isophotal flux'
+ *_fluxerr '% 11.4f' FILT + ' isophotal flux uncertainty'
+ *_sig     '% 8.2f'  FILT + ' detection significance'
+"""
+
+newlabelspecs = """
+ zb	'%6.3f'	    BPZ most likely redshift
+ tb	'%4.2f'	    BPZ most likely spectral type
+ zbmin	'%6.3f'	    Lower limit (95% confidence)
+ zbmax	'%6.3f'	    Upper limit (95% confidence)
+ odds	'%5.3f'	    P(z) contained within zb +/- 2*0.05*(1+z)
+ zml	'%5.2f'	    Maximum Likelihood most likely redshift
+ tml	'%4.2f'	    Maximum Likelihood most likely spectral type
+ chisq	'%7.3f'	    Poorness of BPZ fit: observed vs. model fluxes
+ M0	'% 9.4f'    Magnitude used as a prior
+ chisq2	'%7.3f'	    Modified chisq: model fluxes given error bars
+"""
+
+def starmatch(query, name):
+    words = query.split('*')
+    for word in words:
+        i = name.find(word)
+        if i == -1:
+            break
+        name = name[i+len(word):]
+    return (i > -1) and (name == '')
+
+
+def applylabelspecs(cat, labelspecs, applyformats=1, applydescriptions=1):
+    lines = labelspecs.split('\n')
+    for line in lines:
+        line = line.strip()
+        if line:
+            # Split around ' surrounding format
+            # But allow for ' in description (by only splitting 2x)
+            label, format, description = line.split("'", 2)
+            label = label.strip()
+            description = description.strip()
+            
+            for catlabel in cat.labels:
+                #print label, catlabel, starmatch(label, catlabel)
+                if starmatch(label, catlabel):
+                    if applyformats:
+                        cat.formats[catlabel] = format
+                    
+                    if applydescriptions:
+                        cat.descriptions[catlabel] = description
+
+
+field = sys.argv[1]  # a383 = output file name
+#epoch = sys.argv[2]  # v5
+
+if len(sys.argv) > 2:
+    root = sys.argv[2]
+else:
+    root = 'photometry'
+
+cat = loadcat(root + '.cat')
+#print cat.header
+#pause()
+
+for i in range(len(cat.header)):
+    if cat.header[i][:2] <> '##':
+        break
+
+cat.header = cat.header[:i]
+cat.header[0] = cat.header[0].replace('Photometric', 'Photometric + BPZ')
+#cat.header.insert(1, '## BPZ v1.99.3 results obtained using CR-free filters only\n')
+
+#cat.descriptions
+
+bpzcat = loadcat(root+'_bpz.cat')
+#bpzcat.labels = string.split('id zb   zbmin  zbmax     tb    odds    zml    tml    chisq      M0      chisq2')
+bpzcat.labels = string.split('id zb   zbmin  zbmax     tb    odds    chisq   chisq2  M0    zml    tml')
+cat.merge(bpzcat)
+
+applylabelspecs(cat, newlabelspecs)
+applylabelspecs(cat, oldlabelspecs, applydescriptions=0)
+
+print cat.len()
+print total(cat.flag5sig)
+
+cat = cat.equal('flag5sig', 0)
+print cat.len()
+cat.header[2] = cat.header[2].replace('Please prune', 'Pruned')
+
+#cat.save('macs1149_v1.cat')
+#cat.header = None
+#catsave(cat, 'macs1149_v1.cat')
+#catsave(cat, 'a383_v6amk.cat')
+
+#fieldv = field + '_' + epoch
+#outname = fieldv + 'amk.cat'
+outname = field + '.cat'
+catsave(cat, outname)

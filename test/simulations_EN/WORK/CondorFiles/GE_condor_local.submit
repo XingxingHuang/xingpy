@@ -1,0 +1,18 @@
+# TITLE: Condor parameter file copying to local
+# CREATED: 20070528 davidabreu@users.sourceforge.net
+# File with parameters to launch simulation with condor using condor_submit and
+# copying files to local
+#
+Universe		= vanilla
+Executable		= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/SCRIPTS/GE_launch_complete_simulation.py 
+Args			= -p /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/ParamFiles/groth.fits_stepsize_100.par 1000
+Requirements		= Arch == "INTEL" && OpSys == "LINUX" && LocalExecute == "TRUE"
+Rank			= KFlops
+Log			= my_job$(Process).log
+Output			= my_job$(Process).stdout
+Error			= my_job$(Process).stderr
+Getenv   		= True
+Should_transfer_files	= YES
+When_to_transfer_output = ON_EXIT
+Transfer_input_files	= /net/zipi/scratch/DOCTORADO/GROTHERR/simulations/SIMU/WORK/Entornos/entorno.tar.gz
+Queue 200

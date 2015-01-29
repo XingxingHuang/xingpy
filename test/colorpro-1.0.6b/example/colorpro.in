@@ -1,0 +1,220 @@
+#######################################
+#         ColorPro INPUT FILE         #
+#######################################
+
+
+#######################################
+# IMAGES & NICKNAMES
+
+b
+v
+i
+z
+j	h_nic3udff110wmos_img.fits
+h	h_nic3udff160wmos_img.fits
+
+
+#######################################
+# BACKGROUND ALREADY SUBTRACTED
+ 
+b
+v
+i
+z 
+
+
+#######################################
+# RMS IMAGES
+
+j  h_nic3udff110wsdv_img.fits
+h  h_nic3udff160wsdv_img.fits
+
+
+#######################################
+# WEIGHT IMAGES
+
+b
+v
+i
+z
+j  h_nic3udff110wwt_img.fits
+h  h_nic3udff160wwt_img.fits
+
+
+#######################################
+# ZEROPOINTS
+
+b 25.673
+v 26.486
+i 25.654
+z 24.862
+j 23.4034
+h 23.2146
+
+#######################################
+# EXTINCTION
+
+b 0.03257
+v 0.02316
+i 0.01596
+z 0.01166
+j 0.00714
+h 0.00456
+
+#######################################
+# SATURATION level (in ADUs) at which arises saturation
+# (if not defined, takes SATUR_LEVEL from colorpro.in or default.sexseg)
+
+
+#######################################
+# GAIN - detector gain in e-/ADU.
+# (GAIN = 0 is equivalent to infinite gain)
+# (if not defined, takes GAIN from colorpro.in or default.sexseg)
+
+
+#######################################
+# DETECTION IMAGES
+
+det  det_bviz1.sex
+---
+b / 1.128
+v / 2.182
+i / 2.252
+z / 1.644
+
+det_jh  det_jh1.sex
+---
+j / 4.023E-4
+h / 4.199E-4
+
+
+#######################################
+# PHOTOMETRY FRAME (IF DIFFERENT FROM DETECTION IMAGE)
+
+
+#######################################
+# ALIGNED TO PHOTOMETRY FRAME (OPTIONAL)
+#  (NORMALLY ColorPro CHECKS IMAGE ALIGNMENT BASED ON THE WCS HEADERS.
+#   YOU MAY DECLARE IMAGES HERE TO INSIST THAT THEY ARE ALIGNED
+#    TO THE PHOTOMETRY FRAME, REGARDLESS OF THEIR WCS HEADERS)
+
+
+#######################################
+# SEGMENTATION MAPS
+# Image  Detection  startid  frac=1.5
+
+segm
+---
+STi       i
+STz       z     +30000
+STjh    det_jh  +40000
+det     det      50001
+det_jh  det_jh   60001
+
+
+#######################################
+# PSF IMAGES
+# (IF NOT DECLARED, THEN ASSUMED TO HAVE NAMES bpsf.fits, vpsf.fits, etc.)
+# (OR TO DECLARE THAT ALL IMAGES HAVE THE SAME PSF WITH FWHM = 0.10":  FWHM  0.10)
+
+
+#######################################
+# CONFIGURATION (PHOTOMETRY FRAME)
+ 
+GAIN            0               # detector gain in e-/ADU.
+PHOT_APERTURES  30              # MAG_APER aperture diameter(s) in pixels
+BACK_SIZE       128             # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE 5               # Background filter: <size> or <width>,<height>
+BACKPHOTO_TYPE  LOCAL           # can be "GLOBAL" or "LOCAL" (*)
+BACKPHOTO_THICK 26              # thickness of the background LOCAL annulus (*)
+SATUR_LEVEL	50000		# level (in ADUs) at which arises saturation ***
+ 
+#######################################
+# PARAMETERS (* = REQUIRED)
+ 
+*NUMBER
+*X_IMAGE
+*Y_IMAGE
+*XPEAK_IMAGE
+*YPEAK_IMAGE
+*ISOAREA_IMAGE
+*FLUX_MAX
+*MAG_AUTO
+*MAGERR_AUTO
+MAG_APER
+MAGERR_APER
+*MAG_ISO
+*MAGERR_ISO
+MAG_PROFILE
+MAGERR_PROFILE
+*FLUX_AUTO
+*FLUXERR_AUTO
+FLUX_APER
+FLUXERR_APER
+*FLUX_ISO
+*FLUXERR_ISO
+FWHM_IMAGE
+FLUX_RADIUS
+KRON_RADIUS
+A_IMAGE
+B_IMAGE
+THETA_IMAGE
+CLASS_STAR
+FLAGS
+
+#######################################
+# OUTPUT CATALOG
+# (DEFAULT NAME IS THE NAME OF THIS CONFIG FILE, 
+#  BUT WITH .cat AS THE EXTENSION, AS IN colorpro.cat)
+
+UDFsample
+
+
+#######################################
+#              BPZ SETUP              #
+#######################################
+
+
+#######################################
+# FILTERS
+# Filter response curves to be found in $BPZPATH/FILTER/*.res.
+# Each file contains two columns: wavelength (in Angstroms) and amplitude.
+
+b	HST_ACS_WFC_F435W
+v	HST_ACS_WFC_F606W
+i	HST_ACS_WFC_F775W
+z	HST_ACS_WFC_F850LP
+j	nic3_f110w
+h	nic3_f160w
+
+
+#######################################
+# VEGA
+# (FILTERS FOR WHICH MAGNITUDES ARE IN VEGA
+#  FILTERS NOT LISTED HERE ARE ASSUMED TO BE AB MAGS)
+#
+# j
+
+
+#######################################
+# ZEROPOINT UNCERTAINTIES
+# ONLY USED BY BPZ -- ADDED IN QUADRATURE TO MEASURED UNCERTAINTIES
+# IF NOT DECLARED, DEFAULT IS 0.01
+#
+# j  0.05
+
+
+#################################
+# PRIOR FILTER
+# BPZ'S MAGNITUDE PRIOR WILL BE BASED ON THE MAGNITUDES IN THIS FILTER
+# IF LEFT BLANK, COLORPRO WILL AUTOMATICALLY SELECT THE FILTER WITH THE MOST DETECTIONS
+#
+# z
+
+
+#################################
+# BPZ OPTIONS
+
+INTERP	2
+CHECK	yes	# MODEL vs. OBSERVED FLUX, PLOTS, ETC.
+PROBS_LITE	# OUTPUT P(z) FOR ALL GALAXIES

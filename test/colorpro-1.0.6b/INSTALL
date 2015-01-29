@@ -1,0 +1,97 @@
+SOFTWARE REQUIRED:
+
+# Python with PyRAF, Numpy, and PyFITS
+ (ColorPro now works with numpy v1.0b3 and PyFITS v1.1b2)
+    http://www.python.org/
+    http://www.stsci.edu/resources/software_hardware/pyraf/
+    http://numpy.scipy.org/
+    http://www.stsci.edu/resources/software_hardware/pyfits
+
+  If you need to install any/all of these on a Mac, 
+   I can recommend Universal Python:
+     http://www.pythonmac.org/packages/py25-fat/index.html
+   and/or the Scipy Superpack:
+     http://www.scipy.org/Download
+
+# SExtractor
+    http://terapix.iap.fr/rubrique.php?id_rubrique=91/
+
+# (SExSeg packaged with ColorPro)
+    http://adcam.pha.jhu.edu/~coe/SExSeg/
+
+# WCSTools: xy2sky, sky2xy, imsize
+    http://tdc-www.harvard.edu/wcstools/
+
+- BPZ (OPTIONAL, BUT PACKAGED WITH ColorPro)
+    http://acs.pha.jhu.edu/~txitxo/
+    (HOWEVER, THE LATEST VERSION IS CURRENTLY ONLY AVAILABLE WITH ColorPro)
+
+- match (OPTIONAL)
+     to automatically correct simple WCS misalignments, namely x / y shifts (STILL IN BETA)
+    http://spiff.rit.edu/match/match-0.6/match.html
+
+---------------------------------
+
+FINISH INSTALLATION:
+
+By now, you've done the following
+
+gunzip colorpro-1.0.6.tar.gz
+tar -xvf colorpro-1.0.6.tar
+gunzip bpz-1.99.1.tar.gz
+tar -xvf bpz-1.99.1.tar
+
+(Note you may not want to delete the .tar file just yet...)
+
+So you should have ColorPro installed to a colorpro-1.0.6/ directory
+and BPZ installed to a bpz-1.99.1/ directory.
+Add these directories to your PYTHONPATH, and alias new commands "colorpro" and "bpz", like this:
+
+setenv HOME /home/coe  (use your pathname instead!)
+setenv COLORPRO {$HOME}/colorpro-1.0.6
+setenv BPZPATH  {$HOME}/bpz-1.99.1
+setenv PYTHONPATH {$PYTHONPATH}:{$COLORPRO}:{$BPZPATH}
+alias colorpro "python $COLORPRO/colorpro.py"
+setenv SEXSEG $COLORPRO
+alias sexseg "python $SEXSEG/sexseg.py"
+alias bpz "python $BPZPATH/bpz.py"
+setenv NUMERIX numpy
+
+Note: Pyraf expects to find "login.cl" in either the current directory or in ~/iraf/
+(where ~/ is your home directory).
+If your login.cl is somewhere else, either copy it to ~/iraf/
+or create ~/iraf as a link to the directory where your login.cl is.
+
+And don't be fooled by my NUMERIX environment variable.
+You can't set it to numeric and expect ColorPro to run using Numeric instead of Numpy.
+The only thing NUMERIX is good for is that it tells PyFITS to use Numpy instead of Numeric.
+
+---------------------------------
+
+TRY IT OUT!
+
+If you downloaded the example along with ColorPro, navigate to the colorpro-1.0.6/example/ subdirectory.
+
+To run ColorPro, simply type:
+
+colorpro
+
+Or to try out ColorPro on an example that runs straight SExtractor instead of SExSeg:
+
+colorpro straightsex.in
+
+(Note that ColorPro will produce a bunch of intermediate files in addition to the final output catalog.  If you want to keep your example/ subdirectory pristine, it's best to copy the files over to another directory.  If you've already sullied the directory, you can recreate it if you still have the colorpro-1.0.6.tar file!)
+
+ColorPro will automatically look for colorpro.in, the configuration file, which tells it where to find all of your images, etc.
+
+ColorPro will run on a small portion of the UDF (identical to that shown in Fig. 2 in our UDF catalog paper).  Images (including RMS & weight images) are provided in 6 filters: b, v, i, z, j, h.  ColorPro then goes about the messy business of creating detection images, aligning the images, degrading the detection image to the poorer PSFs of the j & h NIC3 images, compiling a segmentation map from 5 sources (again as in Fig. 2), running SExSeg on all the images, and finally collating the final catalog.
+
+The end product is (by default): colorpro.cat
+(A more detailed catalog is also produced: phot.cat)
+
+To learn about the contents of colorpro.cat, see MANUAL-OUTPUT.
+
+BPZ is now packaged with ColorPro!
+After colorpro.cat is produced, ColorPro will automatically run BPZ for you if you wish.
+The resulting catalog is (by default) colorpro_bpz.cat
+And finally, a ColorPro+BPZ catalog is produced: colorpro_photbpz.cat

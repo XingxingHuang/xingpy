@@ -1,0 +1,14 @@
+ColorPro: PSF-corrected Aperture-Matched Photometry
+
+ColorPro automatically obtains robust colors across images of varied PSF. The "detection image" is blurred to the PSF of other images as necessary. And identical photometric apertures are used in every image. Usually isophotal apertures are used, as determined by SExtractor. But you may also define arbitrary apertures, and even automatically combine object detections from different images. Our SExSeg program forces SExtractor to accept your resulting "segmentation map".
+
+Please see the INSTALL file to finish setting up ColorPro.
+
+Please see MANUAL for a Quick Start guide.
+Also available at http://adcam.pha.jhu.edu/~coe/ColorPro/manual/
+
+For more details, and to see ColorPro in action, please see our
+UDF catalog paper at http://adcam.pha.jhu.edu/~coe/UDF/
+
+Dan Coe <coe(at)caltech.edu>
+also see CREDITS, TODO
